@@ -1,0 +1,557 @@
+/* ========================================
+   RESET
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f5f5f3;
+    color: #111;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* ========================================
+   NAVBAR
+   TETAP DI ATAS SAAT SCROLL
+======================================== */
+
+.navbar {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    padding: 30px 32px;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    z-index: 9999;
+
+    /* Jangan gunakan mix-blend-mode */
+}
+
+
+/* ========================================
+   LOGO
+   © CODE BY ALFATHIN
+======================================== */
+
+.logo {
+    position: fixed;
+
+    top: 30px;
+    left: 32px;
+
+    color: #111 !important;
+
+    text-decoration: none;
+
+    font-size: 17px;
+
+    font-weight: 500;
+
+    letter-spacing: 0;
+
+    white-space: nowrap;
+
+    z-index: 10000;
+}
+
+
+/* ========================================
+   NAVIGATION
+======================================== */
+
+nav {
+    display: flex;
+
+    gap: 45px;
+
+    margin-left: auto;
+}
+
+nav a {
+    color: #111;
+
+    text-decoration: none;
+
+    font-size: 17px;
+
+    position: relative;
+
+    white-space: nowrap;
+}
+
+nav a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -6px;
+
+    width: 0;
+
+    height: 1px;
+
+    background: #111;
+
+    transition: 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+
+/* ========================================
+   MAIN
+======================================== */
+
+.about-page {
+    width: 100%;
+}
+
+
+/* ========================================
+   TOP INFO
+======================================== */
+
+.top-info {
+    padding: 120px 32px 0;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    color: #777;
+}
+
+
+/* ========================================
+   INTRO
+======================================== */
+
+.intro {
+    padding: 90px 7% 80px;
+}
+
+.small-text {
+    margin-bottom: 35px;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    color: #777;
+}
+
+.intro h1 {
+    max-width: 1000px;
+
+    font-size: clamp(45px, 7vw, 100px);
+
+    line-height: 0.9;
+
+    letter-spacing: -5px;
+
+    font-weight: 400;
+}
+
+.intro h1 span {
+    display: block;
+
+    color: #999;
+}
+
+
+/* ========================================
+   FOTO
+======================================== */
+
+.photo-section {
+    width: 100%;
+
+    padding: 0 7% 100px;
+}
+
+.photo-wrapper {
+    width: 100%;
+
+    height: 65vh;
+
+    overflow: hidden;
+
+    background: #ddd;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+.photo-wrapper img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    display: block;
+
+    transition: transform 1s cubic-bezier(.2, .7, .2, 1);
+}
+
+.photo-wrapper:hover img {
+    transform: scale(1.04);
+}
+
+
+/* ========================================
+   STORY
+======================================== */
+
+.story {
+    min-height: 100vh;
+
+    background: #111;
+
+    color: white;
+
+    padding: 140px 10%;
+
+    display: grid;
+
+    grid-template-columns: 20% 80%;
+
+    align-items: start;
+}
+
+.story-number {
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    color: #666;
+}
+
+.story-content {
+    max-width: 800px;
+}
+
+.story-title {
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    color: #777;
+
+    margin-bottom: 50px;
+}
+
+.story-text {
+    font-size: clamp(28px, 4vw, 55px);
+
+    line-height: 1.1;
+
+    letter-spacing: -2px;
+
+    color: #eee;
+
+    margin-bottom: 40px;
+}
+
+
+/* ========================================
+   SKILLS
+======================================== */
+
+.skills {
+    min-height: 100vh;
+
+    padding: 140px 10%;
+
+    display: grid;
+
+    grid-template-columns: 20% 80%;
+
+    align-items: start;
+}
+
+.skills-content {
+    width: 100%;
+}
+
+.skill-list {
+    border-top: 1px solid #ccc;
+}
+
+.skill-list div {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 25px 0;
+
+    border-bottom: 1px solid #ccc;
+
+    transition: padding 0.4s ease;
+}
+
+.skill-list div:hover {
+    padding-left: 20px;
+
+    padding-right: 20px;
+}
+
+.skill-list span {
+    font-size: 10px;
+
+    color: #999;
+}
+
+.skill-list strong {
+    font-size: clamp(25px, 4vw, 55px);
+
+    font-weight: 400;
+
+    letter-spacing: -2px;
+}
+
+
+/* ========================================
+   NEXT SECTION
+======================================== */
+
+.next-section {
+    min-height: 70vh;
+
+    background: #111;
+
+    color: white;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 50px;
+}
+
+.next-section p {
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    color: #777;
+
+    margin-bottom: 35px;
+}
+
+.next-section a {
+    color: white;
+
+    text-decoration: none;
+
+    font-size: clamp(30px, 5vw, 70px);
+
+    letter-spacing: -3px;
+
+    font-weight: 400;
+
+    transition: 0.4s ease;
+}
+
+.next-section a span {
+    display: inline-block;
+
+    transition: 0.4s ease;
+}
+
+.next-section a:hover {
+    opacity: 0.6;
+}
+
+.next-section a:hover span {
+    transform: translate(10px, -10px);
+}
+
+
+/* ========================================
+   FOOTER
+======================================== */
+
+footer {
+    padding: 25px 32px;
+
+    background: #111;
+
+    color: #666;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    font-size: 17px;
+
+    letter-spacing: 1px;
+}
+
+
+/* ========================================
+   ANIMATION
+======================================== */
+
+.intro,
+.photo-section,
+.story-content,
+.skills-content,
+.next-section {
+    animation: reveal 1s cubic-bezier(.2, .7, .2, 1) both;
+}
+
+@keyframes reveal {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(60px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 22px 18px;
+    }
+
+    /* LOGO TETAP DI ATAS */
+    .logo {
+        position: fixed;
+
+        top: 22px;
+        left: 18px;
+
+        font-size: 14px;
+
+        z-index: 10000;
+    }
+
+    nav {
+        gap: 15px;
+
+        margin-left: auto;
+    }
+
+    nav a {
+        font-size: 11px;
+    }
+
+    .top-info {
+        padding: 100px 18px 0;
+
+        font-size: 7px;
+    }
+
+    .intro {
+        padding: 70px 18px 80px;
+    }
+
+    .intro h1 {
+        font-size: 55px;
+
+        letter-spacing: -4px;
+    }
+
+    .photo-section {
+        padding: 0 18px 100px;
+    }
+
+    .photo-wrapper {
+        height: 60vh;
+    }
+
+    .story {
+        padding: 100px 25px;
+
+        display: block;
+    }
+
+    .story-number {
+        margin-bottom: 60px;
+    }
+
+    .story-text {
+        font-size: 30px;
+    }
+
+    .skills {
+        padding: 100px 25px;
+
+        display: block;
+    }
+
+    .skills .story-number {
+        margin-bottom: 60px;
+    }
+
+    .skill-list strong {
+        font-size: 25px;
+    }
+
+    .next-section {
+        min-height: 60vh;
+
+        padding: 30px 20px;
+    }
+
+    .next-section a {
+        font-size: 32px;
+    }
+
+    footer {
+        padding: 20px;
+
+        font-size: 7px;
+    }
+}
