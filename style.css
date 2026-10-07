@@ -917,3 +917,392 @@ footer {
         pointer-events: none;
     }
 }
+/* ========================================
+   MODERN LOCATION
+======================================== */
+
+.location {
+    position: absolute;
+
+    right: 32px;
+    top: 95px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+    z-index: 50;
+}
+
+
+/* TEXT LOCATION */
+
+.location-info {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    gap: 4px;
+}
+
+
+.location-info span {
+    font-size: 9px;
+
+    letter-spacing: 2.5px;
+
+    color: #777;
+
+    font-weight: 500;
+}
+
+
+.location-info strong {
+    font-size: 13px;
+
+    letter-spacing: 1.5px;
+
+    font-weight: 500;
+
+    color: #111;
+}
+
+
+/* ========================================
+   EARTH BUTTON
+======================================== */
+
+.earth-button {
+
+    position: relative;
+
+    width: 44px;
+    height: 44px;
+
+    padding: 0;
+
+    border: 1px solid #111;
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    overflow: visible;
+
+    transition:
+        background .35s ease,
+        transform .35s ease;
+
+}
+
+
+/* GLOBE */
+
+.earth-icon {
+
+    display: block;
+
+    width: 20px;
+    height: 20px;
+
+    border: 1px solid #111;
+
+    border-radius: 50%;
+
+    font-size: 0;
+
+    position: relative;
+
+    transition:
+        transform .7s ease,
+        border-color .35s ease;
+
+}
+
+
+/* GARIS GLOBE */
+
+.earth-icon::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 4px;
+    right: 4px;
+
+    top: 5px;
+    bottom: 5px;
+
+    border-left: 1px solid #111;
+    border-right: 1px solid #111;
+
+    border-radius: 50%;
+
+}
+
+
+.earth-icon::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 2px;
+    right: 2px;
+
+    top: 9px;
+
+    height: 1px;
+
+    background: #111;
+
+}
+
+
+/* ========================================
+   HOVER
+======================================== */
+
+.earth-button:hover {
+
+    background: #111;
+
+    transform: scale(1.08);
+
+}
+
+
+.earth-button:hover .earth-icon {
+
+    border-color: white;
+
+    transform: rotate(180deg);
+
+}
+
+
+.earth-button:hover .earth-icon::before {
+
+    border-color: white;
+
+}
+
+
+.earth-button:hover .earth-icon::after {
+
+    background: white;
+
+}
+
+
+/* ========================================
+   ACTIVE / CLICK
+======================================== */
+
+.earth-button.active {
+
+    transform: scale(1.12);
+
+}
+
+
+.earth-button.active .earth-icon {
+
+    transform: rotate(360deg);
+
+}
+
+
+/* ========================================
+   PULSE
+======================================== */
+
+.earth-button.active::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 44px;
+    height: 44px;
+
+    border: 1px solid #111;
+
+    border-radius: 50%;
+
+    animation:
+        locationPulse
+        .8s
+        ease-out
+        forwards;
+
+}
+
+
+@keyframes locationPulse {
+
+    0% {
+
+        opacity: .8;
+
+        transform: scale(1);
+
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform: scale(1.8);
+
+    }
+
+}
+
+
+/* ========================================
+   LOCATION DETAIL
+======================================== */
+
+.location-detail {
+
+    position: absolute;
+
+    top: 58px;
+
+    right: 0;
+
+    min-width: 180px;
+
+    padding: 16px 18px;
+
+    background: #111;
+
+    color: white;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+        translateY(-8px)
+        scale(.96);
+
+    transition:
+        opacity .35s ease,
+        transform .35s ease,
+        visibility .35s ease;
+
+}
+
+
+/* SHOW */
+
+.location-detail.show {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateY(0)
+        scale(1);
+
+}
+
+
+.location-detail span {
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    color: #888;
+
+}
+
+
+.location-detail strong {
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+
+    .location {
+
+        right: 20px;
+
+        top: 85px;
+
+        gap: 10px;
+
+    }
+
+
+    .location-info span {
+
+        font-size: 8px;
+
+    }
+
+
+    .location-info strong {
+
+        font-size: 11px;
+
+    }
+
+
+    .earth-button {
+
+        width: 38px;
+        height: 38px;
+
+    }
+
+
+    .earth-icon {
+
+        width: 17px;
+        height: 17px;
+
+    }
+
+
+    .location-detail {
+
+        top: 52px;
+
+        min-width: 160px;
+
+    }
+
+}

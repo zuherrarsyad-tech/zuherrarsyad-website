@@ -3,14 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>ALFATHIN | Web Developer</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
@@ -34,34 +32,10 @@
 
 
     <!-- ========================================
-         WELCOME SCREEN
-    ======================================== -->
-
-    <div class="welcome-screen">
-
-        <div class="welcome-content">
-
-            <span class="welcome-xtra">
-                WELCOME TO
-            </span>
-
-            <h1>
-                ALFATHIN
-            </h1>
-
-            <span class="welcome-line"></span>
-
-        </div>
-
-    </div>
-
-
-    <!-- ========================================
          HERO
     ======================================== -->
 
     <section class="hero" id="home">
-
 
         <!-- INFORMASI ATAS -->
 
@@ -84,54 +58,43 @@
 
         <div class="location">
 
-            <div class="location-info">
+    <div class="location-info">
 
-                <span>
-                    LOCATED
-                </span>
+        <span>
+            LOCATED
+        </span>
 
-                <strong>
-                    INDONESIA
-                </strong>
+        <strong>
+            INDONESIA
+        </strong>
 
-            </div>
+    </div>
 
+    <a
+        href="https://www.google.com/maps/place/6%C2%B024'17.0%22S+106%C2%B047'53.0%22E/@-6.4047207,106.7974143,19z/data=!3m1!4b1!4m4!3m3!8m2!3d-6.404722!4d106.798058?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
+        class="earth-button"
+        aria-label="Buka Google Maps"
+        target="_blank"
+    >
+        <span class="earth-icon"></span>
+    </a>
 
-            <!-- EARTH -->
+    <div
+        class="location-detail"
+        id="locationDetail"
+    >
 
-            <button
-                class="earth-button"
-                id="earthButton"
-                type="button"
-                aria-label="Lihat lokasi"
-            >
+        <span>
+            CURRENT LOCATION
+        </span>
 
-                <span class="earth-icon">
-                    ◉
-                </span>
+        <strong>
+            INDONESIA
+        </strong>
 
-            </button>
+    </div>
 
-
-            <!-- LOCATION DETAIL -->
-
-            <div
-                class="location-detail"
-                id="locationDetail"
-            >
-
-                <span>
-                    CURRENT LOCATION
-                </span>
-
-                <strong>
-                    INDONESIA
-                </strong>
-
-            </div>
-
-        </div>
-
+</div>
 
         <!-- ========================================
              DESCRIPTION
@@ -334,29 +297,29 @@
 
 
     <!-- ========================================
-         LOCATION SCRIPT
+         WELCOME SCREEN
     ======================================== -->
 
-    <script>
+    <div class="welcome-screen">
 
-        const earthButton =
-            document.getElementById("earthButton");
+        <div class="welcome-content">
 
-        const locationDetail =
-            document.getElementById("locationDetail");
+            <span class="welcome-xtra">
+                WELCOME TO
+            </span>
+
+            <h1>
+                ALFATHIN
+            </h1>
+
+            <span class="welcome-line"></span>
+
+        </div>
+
+    </div>
 
 
-        earthButton.addEventListener("click", function () {
-
-            earthButton.classList.toggle("active");
-
-            locationDetail.classList.toggle("show");
-
-        });
-
-    </script>
-
-
+    
 </body>
 
 </html>
