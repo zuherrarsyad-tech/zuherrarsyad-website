@@ -1306,3 +1306,38 @@ footer {
     }
 
 }
+/* FIX GLOBE LOCATION AGAR BULAT SEMPURNA */
+
+.location .earth-button {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    border-radius: 50% !important;
+    aspect-ratio: 1 / 1;
+
+    flex: 0 0 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+}
+
+.location .earth-icon {
+    width: 20px !important;
+    height: 20px !important;
+
+    min-width: 20px;
+    min-height: 20px;
+
+    border-radius: 50% !important;
+
+    aspect-ratio: 1 / 1;
+    box-sizing: border-box;
+}
