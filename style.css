@@ -13,7 +13,7 @@ html {
 }
 
 body {
-    font-family: 'Manrope', sans-serif;;
+    font-family: 'Manrope', Arial, Helvetica, sans-serif;
     background: #f5f5f3;
     color: #111;
     overflow-x: hidden;
@@ -28,6 +28,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
+
     width: 100%;
 
     padding: 30px 32px;
@@ -40,12 +41,15 @@ body {
 }
 
 .logo {
-    
-    color: #111 ;
+    color: #111;
     font-size: 15px;
     font-weight: 500;
+
     letter-spacing: 0;
+
     white-space: nowrap;
+
+    text-decoration: none;
 }
 
 nav {
@@ -57,6 +61,7 @@ nav a {
     position: relative;
 
     color: #111;
+
     text-decoration: none;
 
     font-size: 14px;
@@ -69,6 +74,7 @@ nav a::after {
     content: "";
 
     position: absolute;
+
     left: 0;
     bottom: -6px;
 
@@ -94,6 +100,7 @@ nav a:hover::after {
 
     width: 100%;
     height: 100vh;
+
     min-height: 680px;
 
     overflow: hidden;
@@ -112,15 +119,18 @@ nav a:hover::after {
     position: absolute;
 
     top: 95px;
+
     left: 32px;
     right: 32px;
 
     display: flex;
+
     justify-content: space-between;
 
     color: #777;
 
     font-size: 10px;
+
     letter-spacing: 2px;
 
     z-index: 30;
@@ -129,12 +139,13 @@ nav a:hover::after {
 
 /* ========================================
    LOCATION
+   OVAL SEMPURNA
 ======================================== */
 
 .location {
     position: absolute;
 
-    left: 0;
+    left: 32px;
     top: 45%;
 
     width: 245px;
@@ -142,64 +153,258 @@ nav a:hover::after {
 
     background: #111;
 
-    border-radius: 0 55px 55px 0;
+    /*
+       INI YANG MEMBUAT BENTUKNYA
+       OVAL / PILL SEMPURNA
+    */
+    border-radius: 999px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
 
-    padding-left: 30px;
-    padding-right: 12px;
+    padding: 0 12px 0 30px;
 
     z-index: 30;
 
-    transition: 0.4s ease;
+    box-sizing: border-box;
+
+    transition: transform 0.3s ease;
 }
 
 .location:hover {
-    width: 265px;
+    transform: translateX(5px);
 }
+
+
+/* ========================================
+   LOCATION TEXT
+======================================== */
 
 .location-info {
     display: flex;
+
     flex-direction: column;
+
     gap: 5px;
 
     color: white;
+
+    flex-shrink: 0;
 }
 
 .location-info span {
     font-size: 11px;
+
     letter-spacing: 2px;
+
     color: #aaa;
 }
 
 .location-info strong {
     font-size: 14px;
+
     letter-spacing: 1px;
+
     color: white;
+
+    font-weight: 600;
 }
 
 
 /* ========================================
-   CIRCLE
+   GLOBE BUTTON
 ======================================== */
 
-.circle {
-    width: 70px;
-    height: 70px;
+.location .earth-button {
+    position: relative;
 
-    border-radius: 50%;
+    width: 70px !important;
+    height: 70px !important;
+
+    min-width: 70px !important;
+    min-height: 70px !important;
+
+    max-width: 70px !important;
+    max-height: 70px !important;
+
+    flex: 0 0 70px;
+
+    padding: 0 !important;
+    margin: 0;
+
+    border: none !important;
+
+    border-radius: 50% !important;
 
     background: #f5f5f3;
-    color: #111;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
-    font-size: 28px;
-    font-weight: 300;
+    box-sizing: border-box;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    overflow: hidden;
+
+    aspect-ratio: 1 / 1;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+
+/* ========================================
+   GLOBE ICON
+======================================== */
+
+.location .earth-icon {
+    position: relative;
+
+    display: block;
+
+    width: 34px !important;
+    height: 34px !important;
+
+    min-width: 34px !important;
+    min-height: 34px !important;
+
+    max-width: 34px !important;
+    max-height: 34px !important;
+
+    border: 1.5px solid #111;
+
+    border-radius: 50% !important;
+
+    box-sizing: border-box;
+
+    aspect-ratio: 1 / 1;
+
+    transition: transform 0.6s ease;
+}
+
+
+/* ========================================
+   GLOBE - GARIS VERTIKAL
+======================================== */
+
+.location .earth-icon::before {
+    content: "";
+
+    position: absolute;
+
+    left: 7px;
+    right: 7px;
+
+    top: 1px;
+    bottom: 1px;
+
+    border-left: 1px solid #111;
+    border-right: 1px solid #111;
+
+    border-radius: 50%;
+}
+
+
+/* ========================================
+   GLOBE - GARIS HORIZONTAL
+======================================== */
+
+.location .earth-icon::after {
+    content: "";
+
+    position: absolute;
+
+    left: 3px;
+    right: 3px;
+
+    top: 15px;
+
+    height: 1px;
+
+    background: #111;
+}
+
+
+/* ========================================
+   GLOBE HOVER
+======================================== */
+
+.location .earth-button:hover {
+    transform: scale(1.07);
+}
+
+.location .earth-button:hover .earth-icon {
+    transform: rotate(180deg);
+}
+
+
+/* ========================================
+   LOCATION DETAIL
+======================================== */
+
+.location-detail {
+    position: absolute;
+
+    top: 105px;
+    left: 0;
+
+    min-width: 180px;
+
+    padding: 16px 18px;
+
+    background: #111;
+
+    color: white;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: translateY(-8px);
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        visibility 0.3s ease;
+}
+
+.location-detail.show {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0);
+}
+
+.location-detail span {
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    color: #888;
+}
+
+.location-detail strong {
+    font-size: 15px;
+
+    font-weight: 500;
+
+    letter-spacing: 1px;
 }
 
 
@@ -218,7 +423,9 @@ nav a:hover::after {
 
 .arrow {
     font-size: 35px;
+
     margin-bottom: 25px;
+
     font-weight: 300;
 }
 
@@ -234,6 +441,7 @@ nav a:hover::after {
 
 .description strong {
     color: #111;
+
     font-weight: 600;
 }
 
@@ -250,57 +458,78 @@ nav a:hover::after {
 
     transform: translateX(-50%);
 
-    /*
-       UBAH INI UNTUK MEMBESARKAN / MENGECILKAN FOTO
-
-       70%  = kecil
-       80%  = sedang
-       90%  = besar
-       100% = sangat besar
-    */
     height: 110%;
 
     z-index: 5;
 
     display: flex;
+
     align-items: flex-end;
+
     justify-content: center;
+
+    animation:
+        fotoMasuk
+        1.2s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        forwards;
 }
 
 .person img {
     display: block;
 
     height: 100%;
+
     width: auto;
 
     max-width: 100%;
 
     object-fit: contain;
-      /* jangan gunakan filter blur */
+
     filter: none;
 }
 
 
 /* ========================================
+   ANIMASI FOTO
+======================================== */
+
+@keyframes fotoMasuk {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateX(-50%)
+            translateY(80px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateX(-50%)
+            translateY(0);
+    }
+
+}
+
+
+/* ========================================
    RUNNING TEXT
-   ALFATHIN BERGERAK KANAN → KIRI
 ======================================== */
 
 .running-wrapper {
     position: absolute;
 
     left: 0;
+
     bottom: 3%;
 
     width: 100%;
 
     overflow: hidden;
 
-    /*
-       PENTING:
-       10 membuat tulisan berada
-       DI DEPAN FOTO
-    */
     z-index: 10;
 
     pointer-events: none;
@@ -313,22 +542,25 @@ nav a:hover::after {
 
     white-space: nowrap;
 
-    animation: runningText 25s linear infinite;
+    animation:
+        runningText
+        25s
+        linear
+        infinite;
 }
 
 .running-track span {
-    
     display: block;
 
     margin-right: 80px;
 
     color: #111;
 
-    /*
-       UBAH INI UNTUK UKURAN
-       TULISAN ALFATHIN
-    */
-    font-size: clamp(15px, 16vw, 290px);
+    font-size: clamp(
+        15px,
+        16vw,
+        290px
+    );
 
     font-weight: 100;
 
@@ -368,6 +600,7 @@ nav a:hover::after {
     bottom: 3px;
 
     display: flex;
+
     justify-content: space-between;
 
     z-index: 40;
@@ -392,9 +625,11 @@ nav a:hover::after {
     padding: 140px 10%;
 
     background: #111;
+
     color: #fff;
 
     display: flex;
+
     align-items: center;
 }
 
@@ -429,7 +664,11 @@ nav a:hover::after {
 
 .about h2,
 .contact h2 {
-    font-size: clamp(50px, 7vw, 100px);
+    font-size: clamp(
+        50px,
+        7vw,
+        100px
+    );
 
     line-height: 0.95;
 
@@ -472,6 +711,7 @@ nav a:hover::after {
     color: #111;
 
     display: flex;
+
     align-items: center;
 }
 
@@ -524,7 +764,8 @@ nav a:hover::after {
 }
 
 .email:hover span {
-    transform: translate(5px, -5px);
+    transform:
+        translate(5px, -5px);
 }
 
 
@@ -550,6 +791,132 @@ footer {
 
 
 /* ========================================
+   WELCOME SCREEN
+======================================== */
+
+.welcome-screen {
+    position: fixed;
+
+    inset: 0;
+
+    background: #111;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 99999;
+
+    pointer-events: none;
+
+    animation:
+        welcomeOut
+        1.2s
+        cubic-bezier(
+            0.77,
+            0,
+            0.18,
+            1
+        )
+        2.5s
+        forwards;
+}
+
+.welcome-content {
+    text-align: center;
+}
+
+.welcome-text,
+.welcome-content h1 {
+    font-size: clamp(
+        50px,
+        10vw,
+        130px
+    );
+
+    font-weight: 300;
+
+    letter-spacing: 8px;
+
+    margin: 0;
+}
+
+.welcome-xtra {
+    display: block;
+
+    font-size: 12px;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 20px;
+
+    color: #aaa;
+}
+
+.welcome-line {
+    display: block;
+
+    width: 100px;
+
+    height: 1px;
+
+    background: white;
+
+    margin: 25px auto 0;
+
+    transform-origin: center;
+
+    animation:
+        welcomeLine
+        1s
+        ease
+        0.8s
+        forwards;
+}
+
+
+/* ========================================
+   WELCOME ANIMATION
+======================================== */
+
+@keyframes welcomeOut {
+
+    0% {
+        opacity: 1;
+
+        visibility: visible;
+    }
+
+    100% {
+        opacity: 0;
+
+        visibility: hidden;
+    }
+
+}
+
+@keyframes welcomeLine {
+
+    from {
+        transform: scaleX(0);
+
+        opacity: 0;
+    }
+
+    to {
+        transform: scaleX(1);
+
+        opacity: 1;
+    }
+
+}
+
+
+/* ========================================
    TABLET
 ======================================== */
 
@@ -565,11 +932,13 @@ footer {
 
     .hero-top {
         left: 20px;
+
         right: 20px;
     }
 
     .description {
         right: 5%;
+
         top: 25%;
     }
 
@@ -577,36 +946,64 @@ footer {
         font-size: 21px;
     }
 
+
+    /* LOCATION TABLET */
+
     .location {
+        left: 20px;
+
         width: 210px;
+
         height: 82px;
+
+        padding-left: 22px;
+
+        padding-right: 10px;
     }
 
-    .circle {
-        width: 58px;
-        height: 58px;
+    .location .earth-button {
+        width: 58px !important;
+        height: 58px !important;
+
+        min-width: 58px !important;
+        min-height: 58px !important;
+
+        max-width: 58px !important;
+        max-height: 58px !important;
+
+        flex: 0 0 58px;
     }
+
+    .location .earth-icon {
+        width: 28px !important;
+        height: 28px !important;
+
+        min-width: 28px !important;
+        min-height: 28px !important;
+
+        max-width: 28px !important;
+        max-height: 28px !important;
+    }
+
 
     .person {
-        /*
-           UBAH JIKA FOTO DI TABLET
-           TERLALU BESAR/KECIL
-        */
         height: 78%;
     }
 
     .running-track span {
-        
-        
         font-size: 120px;
-        letter-spacing: 18px;
+
+        letter-spacing: -8px;
+
         margin-right: 45px;
     }
 
     .hero-bottom {
         left: 20px;
+
         right: 20px;
     }
+
 }
 
 
@@ -642,6 +1039,7 @@ footer {
         top: 80px;
 
         left: 18px;
+
         right: 18px;
 
         font-size: 8px;
@@ -650,11 +1048,13 @@ footer {
 
     .description {
         top: 18%;
+
         right: 18px;
     }
 
     .arrow {
         font-size: 25px;
+
         margin-bottom: 12px;
     }
 
@@ -663,13 +1063,26 @@ footer {
     }
 
 
+    /* LOCATION MOBILE */
+
     .location {
+        left: 18px;
+
         top: 52%;
 
         width: 175px;
+
         height: 70px;
 
         padding-left: 20px;
+
+        padding-right: 8px;
+
+        border-radius: 999px;
+    }
+
+    .location-info {
+        gap: 4px;
     }
 
     .location-info span {
@@ -680,39 +1093,46 @@ footer {
         font-size: 11px;
     }
 
-    .circle {
-        width: 50px;
-        height: 50px;
 
-        font-size: 20px;
+    .location .earth-button {
+        width: 50px !important;
+        height: 50px !important;
+
+        min-width: 50px !important;
+        min-height: 50px !important;
+
+        max-width: 50px !important;
+        max-height: 50px !important;
+
+        flex: 0 0 50px;
+    }
+
+    .location .earth-icon {
+        width: 23px !important;
+        height: 23px !important;
+
+        min-width: 23px !important;
+        min-height: 23px !important;
+
+        max-width: 23px !important;
+        max-height: 23px !important;
     }
 
 
-    /* ====================================
-       FOTO MOBILE
-    ==================================== */
+    /* FOTO MOBILE */
 
     .person {
-        /*
-           UBAH INI JIKA FOTO DI HP
-           TERLALU BESAR/KECIL
-        */
         height: 65%;
 
         z-index: 5;
     }
 
 
-    /* ====================================
-       RUNNING TEXT MOBILE
-    ==================================== */
+    /* RUNNING TEXT MOBILE */
 
     .running-wrapper {
         bottom: 9%;
 
-        /*
-           TULISAN TETAP DI DEPAN FOTO
-        */
         z-index: 10;
     }
 
@@ -731,6 +1151,7 @@ footer {
 
     .hero-bottom {
         left: 18px;
+
         right: 18px;
 
         bottom: 18px;
@@ -739,17 +1160,18 @@ footer {
     }
 
 
+    /* ABOUT / CONTACT */
+
     .about,
     .contact {
         padding: 100px 25px;
     }
 
-
     .section-number {
         top: 35px;
+
         left: 25px;
     }
-
 
     .about h2,
     .contact h2 {
@@ -758,23 +1180,22 @@ footer {
         letter-spacing: -3px;
     }
 
-
     .about-text {
         margin-top: 35px;
 
         font-size: 16px;
     }
 
-
     .contact h2 {
         margin-bottom: 45px;
     }
-
 
     .email {
         font-size: 16px;
     }
 
+
+    /* FOOTER */
 
     footer {
         padding: 20px;
@@ -782,562 +1203,19 @@ footer {
         font-size: 8px;
     }
 
-    /* ========================================
-   ANIMASI FOTO MASUK
-======================================== */
 
-.person {
-    animation: fotoMasuk 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
+    /* WELCOME */
 
-@keyframes fotoMasuk {
-    from {
-        opacity: 0;
-        transform: translateX(-50%) translateY(80px);
+    .welcome-content h1 {
+        font-size: 55px;
+
+        letter-spacing: 5px;
     }
 
-    to {
-        opacity: 1;
-        transform: translateX(-50%) translateY(0);
-    }
-}
+    .welcome-xtra {
+        font-size: 9px;
 
-}/* ========================================
-   3D EARTH
-======================================== */
-
-.earth-button {
-    width: 75px;
-    height: 75px;
-
-    border-radius: 50%;
-
-    overflow: hidden;
-
-    background: #111;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 8px 20px rgba(0, 0, 0, 0.35),
-        inset -8px -8px 15px rgba(0, 0, 0, 0.45),
-        inset 5px 5px 12px rgba(255, 255, 255, 0.2);
-
-    transition: transform 0.4s ease;
-}
-
-.earth-button img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    display: block;
-
-    animation: earthRotate 1ms linear infinite;
-}
-
-
-/* Bumi berputar */
-
-@keyframes earthRotate {
-
-    from {
-        transform: rotate(0deg);
+        letter-spacing: 3px;
     }
 
-    to {
-        transform: rotate(360deg);
-    }
-
-}
-
-
-/* Efek ketika mouse diarahkan */
-
-.earth-button:hover {
-    transform: scale(1.1);
-
-    
-    
-}
-/* ========================================
-   WELCOME SCREEN
-======================================== */
-
-.welcome-screen {
-    position: fixed;
-    inset: 0;
-    background: #111;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 99999;
-
-    animation: welcomeOut 1s ease 2s forwards;
-    pointer-events: none;
-}
-
-.welcome-text {
-    font-size: clamp(40px, 8vw, 100px);
-    font-weight: 300;
-    letter-spacing: 8px;
-
-    animation: welcomeText 1.5s ease forwards;
-}
-
-/* Tulisan muncul */
-@keyframes welcomeText {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Layar welcome menghilang */
-@keyframes welcomeOut {
-    0% {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    100% {
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-    }
-}
-/* ========================================
-   MODERN LOCATION
-======================================== */
-
-.location {
-    position: absolute;
-
-    right: 32px;
-    top: 95px;
-
-    display: flex;
-    align-items: center;
-
-    gap: 18px;
-
-    z-index: 50;
-}
-
-
-/* TEXT LOCATION */
-
-.location-info {
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: flex-end;
-
-    gap: 4px;
-}
-
-
-.location-info span {
-    font-size: 9px;
-
-    letter-spacing: 2.5px;
-
-    color: #777;
-
-    font-weight: 500;
-}
-
-
-.location-info strong {
-    font-size: 13px;
-
-    letter-spacing: 1.5px;
-
-    font-weight: 500;
-
-    color: #111;
-}
-
-
-/* ========================================
-   EARTH BUTTON
-======================================== */
-
-.earth-button {
-
-    position: relative;
-
-    width: 44px;
-    height: 44px;
-
-    padding: 0;
-
-    border: 1px solid #111;
-
-    border-radius: 50%;
-
-    background: transparent;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    cursor: pointer;
-
-    overflow: visible;
-
-    transition:
-        background .35s ease,
-        transform .35s ease;
-
-}
-
-
-/* GLOBE */
-
-.earth-icon {
-
-    display: block;
-
-    width: 20px;
-    height: 20px;
-
-    border: 1px solid #111;
-
-    border-radius: 50%;
-
-    font-size: 0;
-
-    position: relative;
-
-    transition:
-        transform .7s ease,
-        border-color .35s ease;
-
-}
-
-
-/* GARIS GLOBE */
-
-.earth-icon::before {
-
-    content: "";
-
-    position: absolute;
-
-    left: 4px;
-    right: 4px;
-
-    top: 5px;
-    bottom: 5px;
-
-    border-left: 1px solid #111;
-    border-right: 1px solid #111;
-
-    border-radius: 50%;
-
-}
-
-
-.earth-icon::after {
-
-    content: "";
-
-    position: absolute;
-
-    left: 2px;
-    right: 2px;
-
-    top: 9px;
-
-    height: 1px;
-
-    background: #111;
-
-}
-
-
-/* ========================================
-   HOVER
-======================================== */
-
-.earth-button:hover {
-
-    background: #111;
-
-    transform: scale(1.08);
-
-}
-
-
-.earth-button:hover .earth-icon {
-
-    border-color: white;
-
-    transform: rotate(180deg);
-
-}
-
-
-.earth-button:hover .earth-icon::before {
-
-    border-color: white;
-
-}
-
-
-.earth-button:hover .earth-icon::after {
-
-    background: white;
-
-}
-
-
-/* ========================================
-   ACTIVE / CLICK
-======================================== */
-
-.earth-button.active {
-
-    transform: scale(1.12);
-
-}
-
-
-.earth-button.active .earth-icon {
-
-    transform: rotate(360deg);
-
-}
-
-
-/* ========================================
-   PULSE
-======================================== */
-
-.earth-button.active::after {
-
-    content: "";
-
-    position: absolute;
-
-    width: 44px;
-    height: 44px;
-
-    border: 1px solid #111;
-
-    border-radius: 50%;
-
-    animation:
-        locationPulse
-        .8s
-        ease-out
-        forwards;
-
-}
-
-
-@keyframes locationPulse {
-
-    0% {
-
-        opacity: .8;
-
-        transform: scale(1);
-
-    }
-
-    100% {
-
-        opacity: 0;
-
-        transform: scale(1.8);
-
-    }
-
-}
-
-
-/* ========================================
-   LOCATION DETAIL
-======================================== */
-
-.location-detail {
-
-    position: absolute;
-
-    top: 58px;
-
-    right: 0;
-
-    min-width: 180px;
-
-    padding: 16px 18px;
-
-    background: #111;
-
-    color: white;
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 6px;
-
-    opacity: 0;
-
-    visibility: hidden;
-
-    transform:
-        translateY(-8px)
-        scale(.96);
-
-    transition:
-        opacity .35s ease,
-        transform .35s ease,
-        visibility .35s ease;
-
-}
-
-
-/* SHOW */
-
-.location-detail.show {
-
-    opacity: 1;
-
-    visibility: visible;
-
-    transform:
-        translateY(0)
-        scale(1);
-
-}
-
-
-.location-detail span {
-
-    font-size: 8px;
-
-    letter-spacing: 2px;
-
-    color: #888;
-
-}
-
-
-.location-detail strong {
-
-    font-size: 15px;
-
-    font-weight: 500;
-
-    letter-spacing: 1px;
-
-}
-
-
-/* ========================================
-   MOBILE
-======================================== */
-
-@media (max-width: 600px) {
-
-    .location {
-
-        right: 20px;
-
-        top: 85px;
-
-        gap: 10px;
-
-    }
-
-
-    .location-info span {
-
-        font-size: 8px;
-
-    }
-
-
-    .location-info strong {
-
-        font-size: 11px;
-
-    }
-
-
-    .earth-button {
-
-        width: 38px;
-        height: 38px;
-
-    }
-
-
-    .earth-icon {
-
-        width: 17px;
-        height: 17px;
-
-    }
-
-
-    .location-detail {
-
-        top: 52px;
-
-        min-width: 160px;
-
-    }
-
-}
-/* FIX GLOBE LOCATION AGAR BULAT SEMPURNA */
-
-.location .earth-button {
-    width: 44px !important;
-    height: 44px !important;
-    min-width: 44px !important;
-    min-height: 44px !important;
-
-    padding: 0 !important;
-    margin: 0 !important;
-
-    border-radius: 50% !important;
-    aspect-ratio: 1 / 1;
-
-    flex: 0 0 44px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    box-sizing: border-box;
-}
-
-.location .earth-icon {
-    width: 20px !important;
-    height: 20px !important;
-
-    min-width: 20px;
-    min-height: 20px;
-
-    border-radius: 50% !important;
-
-    aspect-ratio: 1 / 1;
-    box-sizing: border-box;
 }
