@@ -13,10 +13,450 @@ html {
 }
 
 body {
-    font-family: 'Manrope', Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     background: #f5f5f3;
     color: #111;
     overflow-x: hidden;
+}
+
+
+/* ========================================
+   CUSTOM CURSOR
+======================================== */
+
+.cursor {
+    position: fixed;
+
+    width: 35px;
+    height: 35px;
+
+    border: 1px solid #111;
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: 9999;
+
+    transform: translate(-50%, -50%);
+
+    transition:
+        width 0.3s ease,
+        height 0.3s ease,
+        background 0.3s ease;
+}
+
+.cursor-dot {
+    position: fixed;
+
+    width: 5px;
+    height: 5px;
+
+    background: #111;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: 10000;
+
+    transform: translate(-50%, -50%);
+}
+
+.cursor.active {
+    width: 55px;
+    height: 55px;
+
+    background: rgba(0, 0, 0, 0.06);
+}
+
+
+/* ========================================
+   WELCOME SCREEN
+======================================== */
+
+#welcome-screen {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    background: #000;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 99999;
+
+    color: #fff;
+
+    overflow: hidden;
+
+    opacity: 1;
+    visibility: visible;
+
+    transition:
+        opacity 1s cubic-bezier(
+            0.77,
+            0,
+            0.175,
+            1
+        ),
+        visibility 1s ease;
+}
+
+
+/* ========================================
+   WELCOME SCREEN HIDE
+======================================== */
+
+#welcome-screen.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+/* ========================================
+   WELCOME CONTENT
+======================================== */
+
+.welcome-content {
+    width: min(900px, 85%);
+
+    text-align: center;
+
+    position: relative;
+
+    animation:
+        welcomeContentIn 1.2s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        )
+        forwards;
+}
+
+
+/* ========================================
+   WELCOME TO
+======================================== */
+
+.welcome-small {
+    margin-bottom: 28px;
+
+    font-size: 11px;
+
+    font-weight: 400;
+
+    letter-spacing: 7px;
+
+    color: #fff;
+
+    opacity: 0;
+
+    animation:
+        welcomeSmallIn 0.9s
+        0.2s
+        ease forwards;
+}
+
+
+/* ========================================
+   ALFATHIN
+======================================== */
+
+.welcome-content h1 {
+    margin: 0;
+
+    font-size:
+        clamp(
+            70px,
+            13vw,
+            180px
+        );
+
+    font-weight: 400;
+
+    line-height: 0.85;
+
+    letter-spacing: -6px;
+
+    color: #fff;
+
+    opacity: 0;
+
+    transform:
+        translateY(35px)
+        scale(0.96);
+
+    animation:
+        nameReveal 1.3s
+        0.35s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        )
+        forwards;
+}
+
+
+/* ========================================
+   LOADING LINE
+======================================== */
+
+.loading-line {
+    position: relative;
+
+    width: min(430px, 65%);
+
+    height: 1px;
+
+    margin: 42px auto 0;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.25
+    );
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    animation:
+        lineAppear 0.6s
+        0.8s
+        ease forwards;
+}
+
+
+/* ========================================
+   LOADING PROGRESS
+======================================== */
+
+.loading-progress {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 0;
+    height: 100%;
+
+    background: #fff;
+
+    animation:
+        loadingAnimation 2.2s
+        0.9s
+        cubic-bezier(
+            0.65,
+            0,
+            0.35,
+            1
+        )
+        forwards;
+}
+
+
+/* ========================================
+   PORTFOLIO / 2026
+======================================== */
+
+.welcome-year {
+    display: block;
+
+    margin-top: 18px;
+
+    font-size: 9px;
+
+    font-weight: 400;
+
+    letter-spacing: 5px;
+
+    color: #fff;
+
+    opacity: 0;
+
+    animation:
+        yearReveal 0.8s
+        1s
+        ease forwards;
+}
+
+
+/* ========================================
+   WELCOME CORNER
+======================================== */
+
+.welcome-corner {
+    position: absolute;
+
+    bottom: 30px;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    color: rgba(
+        255,
+        255,
+        255,
+        0.45
+    );
+
+    opacity: 0;
+
+    animation:
+        cornerReveal 1s
+        1.2s
+        ease forwards;
+}
+
+.welcome-left {
+    left: 30px;
+}
+
+.welcome-right {
+    right: 30px;
+}
+
+
+/* ========================================
+   WELCOME ANIMATIONS
+======================================== */
+
+@keyframes welcomeContentIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+@keyframes welcomeSmallIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+@keyframes nameReveal {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(35px)
+            scale(0.96);
+
+        letter-spacing: 15px;
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+        letter-spacing: -6px;
+    }
+
+}
+
+
+@keyframes lineAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scaleX(0);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scaleX(1);
+    }
+
+}
+
+
+@keyframes loadingAnimation {
+
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 100%;
+    }
+
+}
+
+
+@keyframes yearReveal {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(10px);
+    }
+
+    to {
+        opacity: 0.65;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+@keyframes cornerReveal {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
 }
 
 
@@ -26,6 +466,7 @@ body {
 
 .navbar {
     position: absolute;
+
     top: 0;
     left: 0;
 
@@ -34,43 +475,53 @@ body {
     padding: 30px 32px;
 
     display: flex;
-    align-items: center;
-    justify-content: space-between;
 
-    z-index: 10000;
+    justify-content: space-between;
+    align-items: center;
+
+    z-index: 100;
 }
 
 .logo {
     color: #111;
-    font-size: 15px;
-    font-weight: 500;
-
-    letter-spacing: 0;
-
-    white-space: nowrap;
 
     text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    transition:
+        opacity 0.3s ease;
 }
 
-nav {
+.logo:hover {
+    opacity: 0.5;
+}
+
+.navbar nav {
     display: flex;
+
     gap: 38px;
 }
 
-nav a {
-    position: relative;
-
+.navbar nav a {
     color: #111;
 
     text-decoration: none;
 
-    font-size: 14px;
+    font-size: 12px;
+
     font-weight: 500;
 
-    transition: 0.3s ease;
+    letter-spacing: 1px;
+
+    position: relative;
 }
 
-nav a::after {
+.navbar nav a::after {
     content: "";
 
     position: absolute;
@@ -83,10 +534,11 @@ nav a::after {
 
     background: #111;
 
-    transition: 0.3s ease;
+    transition:
+        width 0.3s ease;
 }
 
-nav a:hover::after {
+.navbar nav a:hover::after {
     width: 100%;
 }
 
@@ -99,13 +551,14 @@ nav a:hover::after {
     position: relative;
 
     width: 100%;
+
     height: 100vh;
 
     min-height: 680px;
 
-    overflow: hidden;
-
     background: #f5f5f3;
+
+    overflow: hidden;
 
     border-bottom: 1px solid #111;
 }
@@ -127,37 +580,65 @@ nav a:hover::after {
 
     justify-content: space-between;
 
-    color: #777;
-
     font-size: 10px;
 
-    letter-spacing: 2px;
+    letter-spacing: 3px;
 
-    z-index: 30;
+    z-index: 50;
 }
 
 
 /* ========================================
    LOCATION
-   OVAL SEMPURNA
 ======================================== */
 
-.location {
+.location-wrapper {
     position: absolute;
 
-    left: 32px;
-    top: 45%;
+    left: 0;
 
-    width: 245px;
-    height: 95px;
+    top: 58%;
+
+    transform:
+        translateY(-50%);
+
+    z-index: 50;
+}
+
+.portfolio-label {
+    margin-left: 32px;
+
+    margin-bottom: 10px;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    color: #111;
+}
+
+.location {
+    width: 265px;
+
+    min-height: 95px;
+
+    padding:
+        18px
+        20px
+        18px
+        32px;
 
     background: #111;
 
-    /*
-       INI YANG MEMBUAT BENTUKNYA
-       OVAL / PILL SEMPURNA
-    */
-    border-radius: 999px;
+    color: white;
+
+    border-radius:
+        0
+        60px
+        60px
+        0;
 
     display: flex;
 
@@ -165,23 +646,25 @@ nav a:hover::after {
 
     justify-content: space-between;
 
-    padding: 0 12px 0 30px;
+    gap: 20px;
 
-    z-index: 30;
-
-    box-sizing: border-box;
-
-    transition: transform 0.3s ease;
+    transition:
+        width 0.5s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        ),
+        transform 0.5s ease;
 }
 
 .location:hover {
-    transform: translateX(5px);
+    width: 285px;
+
+    transform:
+        translateX(8px);
 }
-
-
-/* ========================================
-   LOCATION TEXT
-======================================== */
 
 .location-info {
     display: flex;
@@ -189,222 +672,163 @@ nav a:hover::after {
     flex-direction: column;
 
     gap: 5px;
-
-    color: white;
-
-    flex-shrink: 0;
 }
 
 .location-info span {
-    font-size: 11px;
+    font-size: 9px;
 
-    letter-spacing: 2px;
+    letter-spacing: 3px;
 
-    color: #aaa;
+    opacity: 0.65;
 }
 
 .location-info strong {
-    font-size: 14px;
+    font-size: 17px;
 
-    letter-spacing: 1px;
-
-    color: white;
-
-    font-weight: 600;
+    letter-spacing: 2px;
 }
 
 
 /* ========================================
-   GLOBE BUTTON
+   EARTH BUTTON
 ======================================== */
 
-.location .earth-button {
-    position: relative;
+.earth-button {
+    width: 50px;
+    height: 50px;
 
-    width: 70px !important;
-    height: 70px !important;
+    flex-shrink: 0;
 
-    min-width: 70px !important;
-    min-height: 70px !important;
-
-    max-width: 70px !important;
-    max-height: 70px !important;
-
-    flex: 0 0 70px;
-
-    padding: 0 !important;
-    margin: 0;
-
-    border: none !important;
-
-    border-radius: 50% !important;
-
-    background: #f5f5f3;
+    border-radius: 50%;
 
     display: flex;
 
-    align-items: center;
     justify-content: center;
-
-    box-sizing: border-box;
-
-    cursor: pointer;
+    align-items: center;
 
     text-decoration: none;
 
+    background: white;
+
+    border: 2px solid white;
+
     overflow: hidden;
 
-    aspect-ratio: 1 / 1;
-
     transition:
-        transform 0.3s ease,
-        background 0.3s ease;
+        transform 0.6s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        ),
+        box-shadow 0.6s ease;
+}
+
+.earth-button:hover {
+    transform:
+        rotate(-12deg)
+        scale(1.12);
+
+    box-shadow:
+        0
+        8px
+        20px
+        rgba(
+            0,
+            0,
+            0,
+            0.25
+        );
 }
 
 
 /* ========================================
-   GLOBE ICON
+   EARTH OVAL
 ======================================== */
 
-.location .earth-icon {
+.earth-oval {
     position: relative;
 
-    display: block;
+    width: 31px;
+    height: 39px;
 
-    width: 34px !important;
-    height: 34px !important;
+    border: 2px solid #111;
 
-    min-width: 34px !important;
-    min-height: 34px !important;
+    border-radius: 50%;
 
-    max-width: 34px !important;
-    max-height: 34px !important;
+    overflow: hidden;
 
-    border: 1.5px solid #111;
+    background:
+        linear-gradient(
+            90deg,
+            #111 0%,
+            #111 18%,
+            white 18%,
+            white 50%,
+            #111 50%,
+            #111 70%,
+            white 70%,
+            white 100%
+        );
 
-    border-radius: 50% !important;
+    transform:
+        rotate(-15deg);
 
-    box-sizing: border-box;
+    transition:
+        transform 0.7s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        );
+}
 
-    aspect-ratio: 1 / 1;
-
-    transition: transform 0.6s ease;
+.earth-button:hover .earth-oval {
+    transform:
+        rotate(15deg)
+        scale(1.08);
 }
 
 
 /* ========================================
-   GLOBE - GARIS VERTIKAL
+   EARTH LINES
 ======================================== */
 
-.location .earth-icon::before {
-    content: "";
-
+.earth-line {
     position: absolute;
 
-    left: 7px;
-    right: 7px;
+    left: 50%;
 
-    top: 1px;
-    bottom: 1px;
+    transform:
+        translateX(-50%);
 
-    border-left: 1px solid #111;
-    border-right: 1px solid #111;
+    border:
+        1.5px solid #111;
 
     border-radius: 50%;
 }
 
+.line-one {
+    width: 13px;
+    height: 35px;
 
-/* ========================================
-   GLOBE - GARIS HORIZONTAL
-======================================== */
-
-.location .earth-icon::after {
-    content: "";
-
-    position: absolute;
-
-    left: 3px;
-    right: 3px;
-
-    top: 15px;
-
-    height: 1px;
-
-    background: #111;
+    top: 0;
 }
 
+.line-two {
+    width: 27px;
+    height: 14px;
 
-/* ========================================
-   GLOBE HOVER
-======================================== */
-
-.location .earth-button:hover {
-    transform: scale(1.07);
+    top: 11px;
 }
 
-.location .earth-button:hover .earth-icon {
-    transform: rotate(180deg);
-}
+.line-three {
+    width: 19px;
+    height: 7px;
 
-
-/* ========================================
-   LOCATION DETAIL
-======================================== */
-
-.location-detail {
-    position: absolute;
-
-    top: 105px;
-    left: 0;
-
-    min-width: 180px;
-
-    padding: 16px 18px;
-
-    background: #111;
-
-    color: white;
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 6px;
-
-    opacity: 0;
-
-    visibility: hidden;
-
-    transform: translateY(-8px);
-
-    transition:
-        opacity 0.3s ease,
-        transform 0.3s ease,
-        visibility 0.3s ease;
-}
-
-.location-detail.show {
-    opacity: 1;
-
-    visibility: visible;
-
-    transform: translateY(0);
-}
-
-.location-detail span {
-    font-size: 8px;
-
-    letter-spacing: 2px;
-
-    color: #888;
-}
-
-.location-detail strong {
-    font-size: 15px;
-
-    font-weight: 500;
-
-    letter-spacing: 1px;
+    top: 25px;
 }
 
 
@@ -416,15 +840,20 @@ nav a:hover::after {
     position: absolute;
 
     right: 7%;
+
     top: 34%;
 
-    z-index: 30;
+    z-index: 40;
+
+    display: flex;
+
+    gap: 18px;
+
+    align-items: flex-start;
 }
 
-.arrow {
+.description .arrow {
     font-size: 35px;
-
-    margin-bottom: 25px;
 
     font-weight: 300;
 }
@@ -432,22 +861,241 @@ nav a:hover::after {
 .description p {
     font-size: 27px;
 
-    line-height: 1.35;
+    line-height: 1.05;
 
-    color: #333;
-
-    letter-spacing: -1.2px;
+    letter-spacing: -1px;
 }
 
 .description strong {
-    color: #111;
-
-    font-weight: 600;
+    font-weight: 700;
 }
 
 
 /* ========================================
-   FOTO
+   WAVE BACKGROUND
+======================================== */
+
+.wave-background {
+    position: absolute;
+
+    left: 50%;
+
+    bottom: -7%;
+
+    width: 760px;
+    height: 760px;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 2;
+
+    pointer-events: none;
+}
+
+.wave {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    border:
+        2px solid transparent;
+
+    animation:
+        waveMove 6s
+        ease-in-out
+        infinite;
+}
+
+
+/* ========================================
+   WAVE 1
+======================================== */
+
+.wave-1 {
+    width: 330px;
+    height: 330px;
+
+    border-color:
+        rgba(
+            0,
+            0,
+            0,
+            0.80
+        );
+
+    box-shadow:
+        0
+        0
+        35px
+        rgba(
+            0,
+            0,
+            0,
+            0.15
+        );
+
+    animation-delay: 0s;
+}
+
+
+/* ========================================
+   WAVE 2
+======================================== */
+
+.wave-2 {
+    width: 430px;
+    height: 430px;
+
+    border-color:
+        rgba(
+            45,
+            45,
+            45,
+            0.65
+        );
+
+    box-shadow:
+        0
+        0
+        45px
+        rgba(
+            0,
+            0,
+            0,
+            0.12
+        );
+
+    animation-delay: -1s;
+}
+
+
+/* ========================================
+   WAVE 3
+======================================== */
+
+.wave-3 {
+    width: 530px;
+    height: 530px;
+
+    border-color:
+        rgba(
+            90,
+            90,
+            90,
+            0.50
+        );
+
+    box-shadow:
+        0
+        0
+        50px
+        rgba(
+            0,
+            0,
+            0,
+            0.10
+        );
+
+    animation-delay: -2s;
+}
+
+
+/* ========================================
+   WAVE 4
+======================================== */
+
+.wave-4 {
+    width: 630px;
+    height: 630px;
+
+    border-color:
+        rgba(
+            150,
+            150,
+            150,
+            0.38
+        );
+
+    animation-delay: -3s;
+}
+
+
+/* ========================================
+   WAVE 5
+======================================== */
+
+.wave-5 {
+    width: 730px;
+    height: 730px;
+
+    border-color:
+        rgba(
+            255,
+            255,
+            255,
+            0.85
+        );
+
+    box-shadow:
+        0
+        0
+        60px
+        rgba(
+            255,
+            255,
+            255,
+            0.20
+        );
+
+    animation-delay: -4s;
+}
+
+
+/* ========================================
+   WAVE ANIMATION
+======================================== */
+
+@keyframes waveMove {
+
+    0% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(0.96);
+
+        opacity: 0.55;
+    }
+
+    50% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.04);
+
+        opacity: 1;
+    }
+
+    100% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(0.96);
+
+        opacity: 0.55;
+    }
+
+}
+
+
+/* ========================================
+   PERSON / PHOTO
 ======================================== */
 
 .person {
@@ -456,55 +1104,64 @@ nav a:hover::after {
     left: 50%;
     bottom: 0;
 
-    transform: translateX(-50%);
-
     height: 110%;
 
     z-index: 5;
 
+    transform:
+        translateX(-50%);
+
     display: flex;
 
     align-items: flex-end;
-
     justify-content: center;
 
     animation:
-        fotoMasuk
-        1.2s
-        cubic-bezier(0.22, 1, 0.36, 1)
-        forwards;
+        fotoMasuk 1.3s
+        ease-out;
 }
 
 .person img {
-    display: block;
-
     height: 100%;
 
     width: auto;
 
-    max-width: 100%;
+    display: block;
 
     object-fit: contain;
 
-    filter: none;
+    filter:
+        drop-shadow(
+            0
+            20px
+            30px
+            rgba(
+                0,
+                0,
+                0,
+                0.15
+            )
+        );
 }
 
 
 /* ========================================
-   ANIMASI FOTO
+   PHOTO ENTRANCE
 ======================================== */
 
 @keyframes fotoMasuk {
 
     from {
+
         opacity: 0;
 
         transform:
             translateX(-50%)
-            translateY(80px);
+            translateY(60px);
     }
 
     to {
+
         opacity: 1;
 
         transform:
@@ -517,6 +1174,7 @@ nav a:hover::after {
 
 /* ========================================
    RUNNING TEXT
+   NORMAL / TIDAK BOLD
 ======================================== */
 
 .running-wrapper {
@@ -530,58 +1188,58 @@ nav a:hover::after {
 
     overflow: hidden;
 
-    z-index: 10;
+    z-index: 20;
 
     pointer-events: none;
 }
 
 .running-track {
-    display: flex;
-
-    width: max-content;
 
     white-space: nowrap;
 
     animation:
-        runningText
-        25s
+        runningText 8s
         linear
         infinite;
 }
 
 .running-track span {
-    display: block;
 
-    margin-right: 80px;
+    display: inline-block;
 
-    color: #111;
+    font-size:
+        clamp(
+            80px,
+            17vw,
+            290px
+        );
 
-    font-size: clamp(
-        15px,
-        16vw,
-        290px
-    );
+    font-weight: 400;
 
-    font-weight: 100;
+    letter-spacing: -10px;
 
-    line-height: 0.8;
+    color: #000;
 
-    letter-spacing: -15px;
+    text-shadow: none;
 }
 
 
 /* ========================================
-   ANIMASI RUNNING TEXT
+   RUNNING TEXT ANIMATION
 ======================================== */
 
 @keyframes runningText {
 
     from {
-        transform: translateX(0);
+
+        transform:
+            translateX(0);
     }
 
     to {
-        transform: translateX(-50%);
+
+        transform:
+            translateX(-50%);
     }
 
 }
@@ -597,19 +1255,17 @@ nav a:hover::after {
     left: 32px;
     right: 32px;
 
-    bottom: 3px;
+    bottom: 28px;
 
     display: flex;
 
     justify-content: space-between;
 
-    z-index: 40;
-
     font-size: 10px;
 
-    letter-spacing: 2px;
+    letter-spacing: 3px;
 
-    color: #777;
+    z-index: 50;
 }
 
 
@@ -618,80 +1274,83 @@ nav a:hover::after {
 ======================================== */
 
 .about {
-    position: relative;
-
     min-height: 100vh;
-
-    padding: 140px 10%;
 
     background: #111;
 
-    color: #fff;
+    color: white;
+
+    padding:
+        150px 8%;
 
     display: flex;
 
     align-items: center;
+
+    opacity: 0;
+
+    transform:
+        translateY(50px);
+
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
 }
 
-.section-number {
-    position: absolute;
+.about.show {
 
-    top: 50px;
-    left: 50px;
+    opacity: 1;
 
-    font-size: 11px;
-
-    letter-spacing: 2px;
-
-    color: #777;
+    transform:
+        translateY(0);
 }
 
 .about-content {
-    max-width: 1000px;
+    max-width: 900px;
 }
 
-.small-title {
+.section-number {
+
     display: block;
 
     margin-bottom: 35px;
 
-    font-size: 11px;
+    font-size: 10px;
 
-    letter-spacing: 3px;
+    letter-spacing: 4px;
 
-    color: #888;
+    opacity: 0.5;
 }
 
-.about h2,
-.contact h2 {
-    font-size: clamp(
-        50px,
-        7vw,
-        100px
-    );
+.about h2 {
 
-    line-height: 0.95;
+    font-size:
+        clamp(
+            50px,
+            8vw,
+            110px
+        );
 
-    letter-spacing: -5px;
+    line-height: 0.8;
 
-    font-weight: 400;
+    letter-spacing: -4px;
+
+    font-weight: 500;
+
+    margin-bottom: 45px;
 }
 
-.about h2 span,
-.contact h2 span {
-    color: #777;
-}
+.about p {
 
-.about-text {
-    max-width: 620px;
+    max-width: 700px;
 
-    margin-top: 55px;
+    font-size: 16px;
 
-    font-size: 19px;
+    line-height: 1.7;
 
-    line-height: 1.8;
+    color: #ccc;
 
-    color: #aaa;
+    white-space: pre-line;
 }
 
 
@@ -700,23 +1359,36 @@ nav a:hover::after {
 ======================================== */
 
 .contact {
-    position: relative;
 
-    min-height: 100vh;
-
-    padding: 140px 10%;
+    min-height: 80vh;
 
     background: #f5f5f3;
 
     color: #111;
 
+    padding:
+        150px 8%;
+
     display: flex;
 
     align-items: center;
+
+    opacity: 0;
+
+    transform:
+        translateY(50px);
+
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
 }
 
-.contact .section-number {
-    color: #999;
+.contact.show {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
 }
 
 .contact-content {
@@ -724,48 +1396,40 @@ nav a:hover::after {
 }
 
 .contact h2 {
-    color: #111;
 
-    margin-bottom: 70px;
+    font-size:
+        clamp(
+            70px,
+            12vw,
+            170px
+        );
+
+    line-height: 0.82;
+
+    letter-spacing: -7px;
+
+    margin-bottom: 60px;
 }
 
-.contact h2 span {
-    color: #999;
-}
-
-.email {
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 25px;
+.email-link {
 
     color: #111;
-
-    text-decoration: none;
 
     font-size: 20px;
 
-    padding-bottom: 12px;
+    text-decoration: none;
 
-    border-bottom: 1px solid #111;
+    border-bottom:
+        1px solid #111;
 
-    transition: 0.3s ease;
+    padding-bottom: 8px;
+
+    transition:
+        opacity 0.3s ease;
 }
 
-.email span {
-    font-size: 25px;
-
-    transition: 0.3s ease;
-}
-
-.email:hover {
-    gap: 35px;
-}
-
-.email:hover span {
-    transform:
-        translate(5px, -5px);
+.email-link:hover {
+    opacity: 0.5;
 }
 
 
@@ -774,145 +1438,21 @@ nav a:hover::after {
 ======================================== */
 
 footer {
-    padding: 25px 32px;
-
-    background: #111;
-
-    color: #777;
-
-    display: flex;
-
-    justify-content: space-between;
-
-    font-size: 17px;
-
-    letter-spacing: 1px;
-}
-
-
-/* ========================================
-   WELCOME SCREEN
-======================================== */
-
-.welcome-screen {
-    position: fixed;
-
-    inset: 0;
 
     background: #111;
 
     color: white;
 
+    padding:
+        25px 32px;
+
     display: flex;
 
-    align-items: center;
+    justify-content: space-between;
 
-    justify-content: center;
+    font-size: 9px;
 
-    z-index: 99999;
-
-    pointer-events: none;
-
-    animation:
-        welcomeOut
-        1.2s
-        cubic-bezier(
-            0.77,
-            0,
-            0.18,
-            1
-        )
-        2.5s
-        forwards;
-}
-
-.welcome-content {
-    text-align: center;
-}
-
-.welcome-text,
-.welcome-content h1 {
-    font-size: clamp(
-        50px,
-        10vw,
-        130px
-    );
-
-    font-weight: 300;
-
-    letter-spacing: 8px;
-
-    margin: 0;
-}
-
-.welcome-xtra {
-    display: block;
-
-    font-size: 12px;
-
-    letter-spacing: 5px;
-
-    margin-bottom: 20px;
-
-    color: #aaa;
-}
-
-.welcome-line {
-    display: block;
-
-    width: 100px;
-
-    height: 1px;
-
-    background: white;
-
-    margin: 25px auto 0;
-
-    transform-origin: center;
-
-    animation:
-        welcomeLine
-        1s
-        ease
-        0.8s
-        forwards;
-}
-
-
-/* ========================================
-   WELCOME ANIMATION
-======================================== */
-
-@keyframes welcomeOut {
-
-    0% {
-        opacity: 1;
-
-        visibility: visible;
-    }
-
-    100% {
-        opacity: 0;
-
-        visibility: hidden;
-    }
-
-}
-
-@keyframes welcomeLine {
-
-    from {
-        transform: scaleX(0);
-
-        opacity: 0;
-    }
-
-    to {
-        transform: scaleX(1);
-
-        opacity: 1;
-    }
-
+    letter-spacing: 3px;
 }
 
 
@@ -923,85 +1463,52 @@ footer {
 @media (max-width: 900px) {
 
     .navbar {
-        padding: 25px 20px;
+
+        padding: 25px;
     }
 
-    nav {
-        gap: 22px;
+    .navbar nav {
+
+        gap: 20px;
     }
 
     .hero-top {
-        left: 20px;
 
-        right: 20px;
-    }
-
-    .description {
-        right: 5%;
-
-        top: 25%;
-    }
-
-    .description p {
-        font-size: 21px;
-    }
-
-
-    /* LOCATION TABLET */
-
-    .location {
-        left: 20px;
-
-        width: 210px;
-
-        height: 82px;
-
-        padding-left: 22px;
-
-        padding-right: 10px;
-    }
-
-    .location .earth-button {
-        width: 58px !important;
-        height: 58px !important;
-
-        min-width: 58px !important;
-        min-height: 58px !important;
-
-        max-width: 58px !important;
-        max-height: 58px !important;
-
-        flex: 0 0 58px;
-    }
-
-    .location .earth-icon {
-        width: 28px !important;
-        height: 28px !important;
-
-        min-width: 28px !important;
-        min-height: 28px !important;
-
-        max-width: 28px !important;
-        max-height: 28px !important;
-    }
-
-
-    .person {
-        height: 78%;
-    }
-
-    .running-track span {
-        font-size: 120px;
-
-        letter-spacing: -8px;
-
-        margin-right: 45px;
+        left: 25px;
+        right: 25px;
     }
 
     .hero-bottom {
-        left: 20px;
 
-        right: 20px;
+        left: 25px;
+        right: 25px;
+    }
+
+    .person {
+
+        height: 78%;
+    }
+
+    .wave-background {
+
+        width: 650px;
+        height: 650px;
+    }
+
+    .description {
+
+        right: 5%;
+        top: 30%;
+    }
+
+    .description p {
+
+        font-size: 21px;
+    }
+
+    .location-wrapper {
+
+        top: 58%;
     }
 
 }
@@ -1013,331 +1520,443 @@ footer {
 
 @media (max-width: 600px) {
 
+    body {
+        cursor: auto;
+    }
+
+    .cursor,
+    .cursor-dot {
+        display: none;
+    }
+
+
+    /* =========================
+       NAVBAR
+    ========================== */
+
     .navbar {
-        padding: 22px 18px;
+
+        padding:
+            22px 18px;
+
+        align-items:
+            flex-start;
     }
 
     .logo {
-        font-size: 12px;
+
+        font-size: 10px;
+
+        letter-spacing: 1.5px;
     }
 
-    nav {
-        gap: 15px;
+    .navbar nav {
+
+        gap: 14px;
     }
 
-    nav a {
-        font-size: 12px;
-    }
+    .navbar nav a {
 
-
-    .hero {
-        min-height: 700px;
+        font-size: 9px;
     }
 
 
-    .hero-top {
-        top: 80px;
+    /* =========================
+       WELCOME
+    ========================== */
 
-        left: 18px;
-
-        right: 18px;
+    .welcome-small {
 
         font-size: 8px;
+
+        letter-spacing: 5px;
+
+        margin-bottom: 22px;
     }
 
+    .welcome-content h1 {
 
-    .description {
-        top: 18%;
-
-        right: 18px;
-    }
-
-    .arrow {
-        font-size: 25px;
-
-        margin-bottom: 12px;
-    }
-
-    .description p {
-        font-size: 17px;
-    }
-
-
-    /* LOCATION MOBILE */
-
-    .location {
-        left: 18px;
-
-        top: 52%;
-
-        width: 175px;
-
-        height: 70px;
-
-        padding-left: 20px;
-
-        padding-right: 8px;
-
-        border-radius: 999px;
-    }
-
-    .location-info {
-        gap: 4px;
-    }
-
-    .location-info span {
-        font-size: 8px;
-    }
-
-    .location-info strong {
-        font-size: 11px;
-    }
-
-
-    .location .earth-button {
-        width: 50px !important;
-        height: 50px !important;
-
-        min-width: 50px !important;
-        min-height: 50px !important;
-
-        max-width: 50px !important;
-        max-height: 50px !important;
-
-        flex: 0 0 50px;
-    }
-
-    .location .earth-icon {
-        width: 23px !important;
-        height: 23px !important;
-
-        min-width: 23px !important;
-        min-height: 23px !important;
-
-        max-width: 23px !important;
-        max-height: 23px !important;
-    }
-
-
-    /* FOTO MOBILE */
-
-    .person {
-        height: 65%;
-
-        z-index: 5;
-    }
-
-
-    /* RUNNING TEXT MOBILE */
-
-    .running-wrapper {
-        bottom: 9%;
-
-        z-index: 10;
-    }
-
-    .running-track {
-        animation-duration: 20s;
-    }
-
-    .running-track span {
-        font-size: 78px;
-
-        letter-spacing: -5px;
-
-        margin-right: 35px;
-    }
-
-
-    .hero-bottom {
-        left: 18px;
-
-        right: 18px;
-
-        bottom: 18px;
-
-        font-size: 7px;
-    }
-
-
-    /* ABOUT / CONTACT */
-
-    .about,
-    .contact {
-        padding: 100px 25px;
-    }
-
-    .section-number {
-        top: 35px;
-
-        left: 25px;
-    }
-
-    .about h2,
-    .contact h2 {
-        font-size: 48px;
+        font-size:
+            clamp(
+                48px,
+                14vw,
+                90px
+            );
 
         letter-spacing: -3px;
     }
 
-    .about-text {
-        margin-top: 35px;
+    .loading-line {
 
-        font-size: 16px;
+        width: 70%;
+
+        margin-top: 30px;
     }
 
+    .welcome-year {
+
+        font-size: 7px;
+
+        letter-spacing: 3px;
+
+        margin-top: 15px;
+    }
+
+    .welcome-corner {
+
+        bottom: 20px;
+
+        font-size: 6px;
+
+        letter-spacing: 2px;
+    }
+
+    .welcome-left {
+
+        left: 18px;
+    }
+
+    .welcome-right {
+
+        right: 18px;
+    }
+
+
+    /* =========================
+       HERO
+    ========================== */
+
+    .hero {
+
+        min-height: 650px;
+    }
+
+
+    /* =========================
+       HERO TOP
+    ========================== */
+
+    .hero-top {
+
+        top: 80px;
+
+        left: 18px;
+        right: 18px;
+
+        font-size: 8px;
+
+        letter-spacing: 2px;
+    }
+
+
+    /* =========================
+       LOCATION
+    ========================== */
+
+    .location-wrapper {
+
+        top: 55%;
+    }
+
+    .portfolio-label {
+
+        margin-left: 20px;
+
+        font-size: 8px;
+
+        letter-spacing: 2px;
+    }
+
+    .location {
+
+        width: 210px;
+
+        min-height: 78px;
+
+        padding:
+            14px
+            15px
+            14px
+            20px;
+    }
+
+    .location:hover {
+
+        width: 225px;
+    }
+
+    .location-info span {
+
+        font-size: 7px;
+    }
+
+    .location-info strong {
+
+        font-size: 13px;
+    }
+
+
+    /* =========================
+       EARTH
+    ========================== */
+
+    .earth-button {
+
+        width: 42px;
+        height: 42px;
+    }
+
+    .earth-oval {
+
+        width: 25px;
+        height: 32px;
+    }
+
+    .line-one {
+
+        width: 10px;
+        height: 28px;
+    }
+
+    .line-two {
+
+        width: 22px;
+        height: 11px;
+
+        top: 9px;
+    }
+
+    .line-three {
+
+        width: 15px;
+        height: 6px;
+
+        top: 20px;
+    }
+
+
+    /* =========================
+       DESCRIPTION
+    ========================== */
+
+    .description {
+
+        right: 18px;
+
+        top: 23%;
+
+        gap: 8px;
+    }
+
+    .description .arrow {
+
+        font-size: 25px;
+    }
+
+    .description p {
+
+        font-size: 17px;
+    }
+
+
+    /* =========================
+       WAVE
+    ========================== */
+
+    .wave-background {
+
+        width: 500px;
+        height: 500px;
+
+        bottom: -1%;
+    }
+
+    .wave-1 {
+
+        width: 230px;
+        height: 230px;
+    }
+
+    .wave-2 {
+
+        width: 300px;
+        height: 300px;
+    }
+
+    .wave-3 {
+
+        width: 370px;
+        height: 370px;
+    }
+
+    .wave-4 {
+
+        width: 440px;
+        height: 440px;
+    }
+
+    .wave-5 {
+
+        width: 500px;
+        height: 500px;
+    }
+
+
+    /* =========================
+       PHOTO
+    ========================== */
+
+    .person {
+
+        height: 65%;
+    }
+
+
+    /* =========================
+       RUNNING TEXT MOBILE
+    ========================== */
+
+    .running-wrapper {
+
+        bottom: 9%;
+    }
+
+    .running-track {
+
+        animation:
+            runningText 8s
+            linear
+            infinite;
+    }
+
+    .running-track span {
+
+        font-size: 90px;
+
+        font-weight: 400;
+
+        letter-spacing: -5px;
+    }
+
+
+    /* =========================
+       HERO BOTTOM
+    ========================== */
+
+    .hero-bottom {
+
+        left: 18px;
+        right: 18px;
+
+        bottom: 20px;
+
+        font-size: 7px;
+
+        letter-spacing: 2px;
+    }
+
+
+    /* =========================
+       ABOUT & CONTACT
+    ========================== */
+
+    .about,
+    .contact {
+
+        padding:
+            100px 25px;
+    }
+
+    .about h2,
     .contact h2 {
-        margin-bottom: 45px;
+
+        font-size: 80px;
+
+        letter-spacing: -5px;
     }
 
-    .email {
+    .about p {
+
         font-size: 16px;
     }
 
+    .email-link {
 
-    /* FOOTER */
+        font-size: 15px;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================== */
 
     footer {
-        padding: 20px;
+
+        padding:
+            22px 18px;
+
+        font-size: 7px;
+    }
+
+}
+
+
+/* ========================================
+   VERY SMALL SCREEN
+======================================== */
+
+@media (max-width: 400px) {
+
+    .navbar nav {
+
+        gap: 9px;
+    }
+
+    .navbar nav a {
 
         font-size: 8px;
     }
 
+    .location {
 
-    /* WELCOME */
+        width: 190px;
+    }
+
+
+    /* =========================
+       WELCOME
+    ========================== */
 
     .welcome-content h1 {
-        font-size: 55px;
 
-        letter-spacing: 5px;
+        font-size: 48px;
+
+        letter-spacing: -2px;
     }
 
-    .welcome-xtra {
-        font-size: 9px;
+    .loading-line {
 
-        letter-spacing: 3px;
+        width: 75%;
     }
 
-}/* ========================================
-   PORTFOLIO + LOCATION
-======================================== */
 
-.location-wrapper {
-    position: absolute;
+    /* =========================
+       RUNNING TEXT
+    ========================== */
 
-    left: 0;
+    .running-track {
 
-    /* POSISI LOCATION AGAK KE TENGAH-BAWAH */
-    top: 58%;
+        animation:
+            runningText 8s
+            linear
+            infinite;
+    }
 
-    z-index: 30;
-}
+    .running-track span {
 
+        font-size: 75px;
 
-/* ========================================
-   PORTFOLIO BY FATHIN
-======================================== */
+        font-weight: 400;
+    }
 
-.portfolio-label {
-    margin-left: 50px;
-    margin-bottom: 18px;
-
-    font-size: 11px;
-    font-weight: 500;
-
-    letter-spacing: 4px;
-
-    color: #111;
-}
-
-
-/* ========================================
-   LOCATION BOX
-======================================== */
-
-.location {
-    width: 240px;
-    height: 96px;
-
-    background: #111;
-    color: white;
-
-    border-radius: 0 50px 50px 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 0 18px 0 50px;
-}
-
-
-/* ========================================
-   LOCATION TEXT
-======================================== */
-
-.location-info {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.location-info span {
-    font-size: 9px;
-
-    letter-spacing: 3px;
-
-    color: #999;
-}
-
-.location-info strong {
-    font-size: 13px;
-
-    font-weight: 500;
-
-    letter-spacing: 1px;
-}
-
-
-/* ========================================
-   EARTH BUTTON
-======================================== */
-
-.earth-button {
-    width: 55px;
-    height: 55px;
-
-    border-radius: 50%;
-
-    background: #1a1a1a;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    text-decoration: none;
-
-    box-shadow:
-        inset 0 0 15px rgba(255,255,255,0.05),
-        0 5px 15px rgba(0,0,0,0.2);
-}
-
-
-.earth-icon {
-    width: 28px;
-    height: 28px;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle at 35% 30%,
-            #333 0%,
-            #111 55%,
-            #050505 100%
-        );
-
-    box-shadow:
-        inset -5px -5px 10px rgba(0,0,0,0.7),
-        inset 3px 3px 8px rgba(255,255,255,0.05);
 }

@@ -12,33 +12,69 @@
 
 <body>
 
-    <!-- NAVBAR -->
+    <!-- =========================
+         CUSTOM CURSOR
+    ========================== -->
+    <div class="cursor"></div>
+    <div class="cursor-dot"></div>
+
+
+    
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
     <header class="navbar">
 
         <a href="index.html" class="logo">
-            © Code by Alfathin
+            PORTFOLIO BY FATHIN
         </a>
 
         <nav>
             <a href="index.html">Home</a>
-            <a href="about.html">Aboutme</a>
-            <a href="index.html#contact">ContactMe</a>
+            <a href="about.html" class="active">About me</a>
+            <a href="contact.html">Contact Me</a>
         </nav>
 
     </header>
 
 
-    <!-- ABOUT HERO -->
+    <!-- =========================
+         ABOUT PAGE
+    ========================== -->
     <main class="about-page">
 
-        <div class="top-info">
-            <span>ABOUT / 01</span>
-            <span>ALFATHIN ZUHAIR ARSYAD</span>
+
+        <!-- BACKGROUND ANIMATION -->
+        <div class="about-background">
+
+            <div class="about-circle circle-one"></div>
+            <div class="about-circle circle-two"></div>
+            <div class="about-circle circle-three"></div>
+
+            <div class="background-line line-one"></div>
+            <div class="background-line line-two"></div>
+
         </div>
 
 
-        <!-- JUDUL BESAR -->
-        <section class="intro">
+        <!-- TOP INFORMATION -->
+        <div class="top-info">
+
+            <span>ABOUT / 01</span>
+
+            <span>
+                ALFATHIN ZUHAIR ARSYAD
+            </span>
+
+        </div>
+
+
+        <!-- =========================
+             INTRO
+        ========================== -->
+        <section class="intro reveal">
 
             <p class="small-text">
                 TENTANG SAYA
@@ -49,13 +85,21 @@
                 <span>sesuatu yang bermakna.</span>
             </h1>
 
+            <div class="intro-arrow">
+                ↓
+            </div>
+
         </section>
 
 
-        <!-- FOTO -->
-        <section class="photo-section">
+        <!-- =========================
+             FOTO
+        ========================== -->
+        <section class="photo-section reveal">
 
             <div class="photo-wrapper">
+
+                <div class="photo-ring"></div>
 
                 <img
                     src="images/foto saya kecil.png"
@@ -65,11 +109,12 @@
             </div>
 
         </section>
-    
 
 
-        <!-- DESKRIPSI -->
-        <section class="story">
+        <!-- =========================
+             STORY
+        ========================== -->
+        <section class="story reveal">
 
             <div class="story-number">
                 01
@@ -80,6 +125,13 @@
                 <p class="story-title">
                     WHO AM I?
                 </p>
+
+                <h2>
+                    Pelajar yang sedang
+                    belajar membangun
+                    sesuatu melalui
+                    teknologi.
+                </h2>
 
                 <p class="story-text">
                     Halo, saya Alfathin Zuhair Arsyad.
@@ -99,8 +151,10 @@
         </section>
 
 
-        <!-- SKILL -->
-        <section class="skills">
+        <!-- =========================
+             SKILLS
+        ========================== -->
+        <section class="skills reveal">
 
             <div class="story-number">
                 02
@@ -114,24 +168,55 @@
 
                 <div class="skill-list">
 
-                    <div>
+                    <div class="skill-item">
+
                         <span>01</span>
-                        <strong>Web Development</strong>
+
+                        <strong>
+                            Web Development
+                        </strong>
+
+                        <b>↗</b>
+
                     </div>
 
-                    <div>
+
+                    <div class="skill-item">
+
                         <span>02</span>
-                        <strong>UI / UX Design</strong>
+
+                        <strong>
+                            UI / UX Design
+                        </strong>
+
+                        <b>↗</b>
+
                     </div>
 
-                    <div>
+
+                    <div class="skill-item">
+
                         <span>03</span>
-                        <strong>HTML / CSS</strong>
+
+                        <strong>
+                            HTML / CSS
+                        </strong>
+
+                        <b>↗</b>
+
                     </div>
 
-                    <div>
+
+                    <div class="skill-item">
+
                         <span>04</span>
-                        <strong>JavaScript</strong>
+
+                        <strong>
+                            JavaScript
+                        </strong>
+
+                        <b>↗</b>
+
                     </div>
 
                 </div>
@@ -141,36 +226,357 @@
         </section>
 
 
-        <!-- CTA -->
-        <section class="next-section">
+        <!-- =========================
+             CTA
+        ========================== -->
+        <section class="next-section reveal">
 
             <p>
                 PUNYA SEBUAH IDE?
             </p>
 
-            <a href="index.html#contact">
-                LET'S WORK TOGETHER
-                <span>↗</span>
+            <a href="contact.html">
+
+                <span>
+                    LET'S WORK TOGETHER
+                </span>
+
+                <b>
+                    ↗
+                </b>
+
             </a>
 
         </section>
 
+
+        <!-- BOTTOM INFO -->
+        <div class="about-bottom">
+
+            <span>
+                SCROLL TO EXPLORE
+            </span>
+
+            <span>
+                01 — 04
+            </span>
+
+        </div>
+
+
     </main>
 
 
-    <!-- FOOTER -->
+    <!-- =========================
+         FOOTER
+    ========================== -->
     <footer>
 
-        <span>© 2026 Alfathin</span>
+        <span>
+            © 2026 ALFATHIN
+        </span>
 
         <span>
-            Built by Alfathin — 2026
+            MADE WITH CODE
         </span>
 
     </footer>
 
 
-    <script src="about.js"></script>
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+    <script>
 
+        /* =========================
+           PAGE LOADER
+        ========================== */
+
+        window.addEventListener("load", () => {
+
+            const loader =
+                document.querySelector(".page-loader");
+
+            setTimeout(() => {
+
+                loader.classList.add("hide");
+
+            }, 1800);
+
+        });
+
+
+        /* =========================
+           CUSTOM CURSOR
+        ========================== */
+
+        const cursor =
+            document.querySelector(".cursor");
+
+        const cursorDot =
+            document.querySelector(".cursor-dot");
+
+        let mouseX = 0;
+        let mouseY = 0;
+
+        let cursorX = 0;
+        let cursorY = 0;
+
+
+        document.addEventListener("mousemove", (e) => {
+
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+
+            cursorDot.style.left =
+                mouseX + "px";
+
+            cursorDot.style.top =
+                mouseY + "px";
+
+        });
+
+
+        function animateCursor() {
+
+            cursorX +=
+                (mouseX - cursorX) * 0.12;
+
+            cursorY +=
+                (mouseY - cursorY) * 0.12;
+
+            cursor.style.left =
+                cursorX + "px";
+
+            cursor.style.top =
+                cursorY + "px";
+
+            requestAnimationFrame(
+                animateCursor
+            );
+
+        }
+
+        animateCursor();
+
+
+        /* =========================
+           CURSOR HOVER
+        ========================== */
+
+        document
+            .querySelectorAll("a, .skill-item")
+            .forEach((element) => {
+
+                element.addEventListener(
+                    "mouseenter",
+                    () => {
+
+                        cursor.classList.add(
+                            "active"
+                        );
+
+                    }
+                );
+
+
+                element.addEventListener(
+                    "mouseleave",
+                    () => {
+
+                        cursor.classList.remove(
+                            "active"
+                        );
+
+                    }
+                );
+
+            });
+
+
+        /* =========================
+           BACKGROUND MOUSE MOVEMENT
+        ========================== */
+
+        const background =
+            document.querySelector(
+                ".about-background"
+            );
+
+
+        let targetX = 0;
+        let targetY = 0;
+
+        let currentX = 0;
+        let currentY = 0;
+
+
+        document.addEventListener(
+            "mousemove",
+            (e) => {
+
+                targetX =
+                    (e.clientX /
+                        window.innerWidth -
+                        0.5) * 35;
+
+                targetY =
+                    (e.clientY /
+                        window.innerHeight -
+                        0.5) * 25;
+
+            }
+        );
+
+
+        function animateBackground() {
+
+            currentX +=
+                (targetX - currentX) * 0.035;
+
+            currentY +=
+                (targetY - currentY) * 0.035;
+
+
+            if (background) {
+
+                background.style.transform =
+                    `translate(${currentX}px, ${currentY}px)`;
+
+            }
+
+
+            requestAnimationFrame(
+                animateBackground
+            );
+
+        }
+
+        animateBackground();
+
+
+        /* =========================
+           SCROLL REVEAL
+        ========================== */
+
+        const revealElements =
+            document.querySelectorAll(
+                ".reveal"
+            );
+
+
+        function revealOnScroll() {
+
+            revealElements.forEach(
+                (element) => {
+
+                    const position =
+                        element.getBoundingClientRect()
+                            .top;
+
+
+                    if (
+                        position <
+                        window.innerHeight - 100
+                    ) {
+
+                        element.classList.add(
+                            "show"
+                        );
+
+                    }
+
+                }
+            );
+
+        }
+
+
+        window.addEventListener(
+            "scroll",
+            revealOnScroll
+        );
+
+
+        revealOnScroll();
+
+
+        /* =========================
+           PHOTO PARALLAX
+        ========================== */
+
+        const photo =
+            document.querySelector(
+                ".photo-wrapper"
+            );
+
+
+        document.addEventListener(
+            "mousemove",
+            (e) => {
+
+                if (!photo) return;
+
+                const x =
+                    (e.clientX /
+                        window.innerWidth -
+                        0.5) * 8;
+
+                const y =
+                    (e.clientY /
+                        window.innerHeight -
+                        0.5) * 8;
+
+
+                photo.style.setProperty(
+                    "--photo-x",
+                    `${x}px`
+                );
+
+                photo.style.setProperty(
+                    "--photo-y",
+                    `${y}px`
+                );
+
+            }
+        );
+
+
+        /* =========================
+           SKILL HOVER
+        ========================== */
+
+        document
+            .querySelectorAll(".skill-item")
+            .forEach((item) => {
+
+                item.addEventListener(
+                    "mouseenter",
+                    () => {
+
+                        item.classList.add(
+                            "hovered"
+                        );
+
+                    }
+                );
+
+
+                item.addEventListener(
+                    "mouseleave",
+                    () => {
+
+                        item.classList.remove(
+                            "hovered"
+                        );
+
+                    }
+                );
+
+            });
+
+    </script>
+
+</body>
 
 </html>

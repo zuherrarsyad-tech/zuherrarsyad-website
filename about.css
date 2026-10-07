@@ -21,8 +21,188 @@ body {
 
 
 /* ========================================
+   CUSTOM CURSOR
+======================================== */
+
+.cursor {
+    position: fixed;
+
+    width: 34px;
+    height: 34px;
+
+    border: 1px solid #111;
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 99999;
+
+    transition:
+        width 0.3s ease,
+        height 0.3s ease,
+        background 0.3s ease;
+}
+
+.cursor.active {
+    width: 60px;
+    height: 60px;
+
+    background: #111;
+}
+
+.cursor-dot {
+    position: fixed;
+
+    width: 5px;
+    height: 5px;
+
+    background: #111;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 100000;
+}
+
+
+/* ========================================
+   PAGE LOADER
+======================================== */
+
+.page-loader {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    background: #111;
+    color: white;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 99998;
+
+    opacity: 1;
+    visibility: visible;
+
+    transition:
+        opacity 0.9s ease,
+        visibility 0.9s ease;
+}
+
+.page-loader.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.loader-content {
+    width: min(500px, 80%);
+
+    text-align: center;
+
+    animation:
+        loaderEnter 1s
+        cubic-bezier(.2, .7, .2, 1)
+        both;
+}
+
+.loader-content > span {
+    display: block;
+
+    margin-bottom: 22px;
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    color: #777;
+}
+
+.loader-content h1 {
+    font-size: clamp(65px, 12vw, 150px);
+
+    line-height: 0.8;
+
+    letter-spacing: -8px;
+
+    font-weight: 400;
+
+    margin-bottom: 40px;
+}
+
+.loader-line {
+    width: 100%;
+
+    height: 1px;
+
+    background: #444;
+
+    overflow: hidden;
+
+    margin-bottom: 18px;
+}
+
+.loader-progress {
+    width: 0;
+
+    height: 100%;
+
+    background: white;
+
+    animation:
+        loading 1.6s
+        cubic-bezier(.7, 0, .3, 1)
+        forwards;
+}
+
+.loader-content small {
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    color: #666;
+}
+
+@keyframes loading {
+
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+
+}
+
+@keyframes loaderEnter {
+
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* ========================================
    NAVBAR
-   TETAP DI ATAS SAAT SCROLL
 ======================================== */
 
 .navbar {
@@ -41,22 +221,14 @@ body {
     align-items: center;
 
     z-index: 9999;
-
-    /* Jangan gunakan mix-blend-mode */
 }
 
 
 /* ========================================
    LOGO
-   © CODE BY ALFATHIN
 ======================================== */
 
 .logo {
-    position: fixed;
-
-    top: 30px;
-    left: 32px;
-
     color: #111 !important;
 
     text-decoration: none;
@@ -68,6 +240,8 @@ body {
     letter-spacing: 0;
 
     white-space: nowrap;
+
+    position: relative;
 
     z-index: 10000;
 }
@@ -111,10 +285,11 @@ nav a::after {
 
     background: #111;
 
-    transition: 0.3s ease;
+    transition: width 0.3s ease;
 }
 
-nav a:hover::after {
+nav a:hover::after,
+nav a.active::after {
     width: 100%;
 }
 
@@ -124,7 +299,159 @@ nav a:hover::after {
 ======================================== */
 
 .about-page {
+    position: relative;
+
     width: 100%;
+
+    overflow: hidden;
+
+    background: #f5f5f3;
+}
+
+
+/* ========================================
+   ANIMATED BACKGROUND
+======================================== */
+
+.about-background {
+    position: fixed;
+
+    width: 100vw;
+    height: 100vh;
+
+    top: 0;
+    left: 0;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+    transition: transform 0.2s ease-out;
+}
+
+
+/* ========================================
+   BACKGROUND CIRCLES
+======================================== */
+
+.about-circle {
+    position: absolute;
+
+    border: 1px solid rgba(17, 17, 17, 0.08);
+
+    border-radius: 50%;
+
+    animation:
+        circleFloat
+        10s
+        ease-in-out
+        infinite;
+}
+
+.circle-one {
+    width: 55vw;
+    height: 55vw;
+
+    max-width: 750px;
+    max-height: 750px;
+
+    left: 58%;
+    top: 20%;
+
+    transform: translate(-50%, -50%);
+}
+
+.circle-two {
+    width: 75vw;
+    height: 75vw;
+
+    max-width: 1000px;
+    max-height: 1000px;
+
+    left: 58%;
+    top: 20%;
+
+    transform: translate(-50%, -50%);
+
+    animation-delay: -3s;
+}
+
+.circle-three {
+    width: 95vw;
+    height: 95vw;
+
+    max-width: 1250px;
+    max-height: 1250px;
+
+    left: 58%;
+    top: 20%;
+
+    transform: translate(-50%, -50%);
+
+    animation-delay: -6s;
+}
+
+@keyframes circleFloat {
+
+    0%,
+    100% {
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translate(-50%, -50%)
+            scale(1.04);
+    }
+
+}
+
+
+/* ========================================
+   BACKGROUND LINES
+======================================== */
+
+.background-line {
+    position: absolute;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 1px;
+
+    background: rgba(17, 17, 17, 0.07);
+
+    animation:
+        lineMove
+        8s
+        ease-in-out
+        infinite;
+}
+
+.background-line.line-one {
+    top: 35%;
+}
+
+.background-line.line-two {
+    top: 70%;
+
+    animation-delay: -4s;
+}
+
+@keyframes lineMove {
+
+    0%,
+    100% {
+        transform: translateX(-3%);
+    }
+
+    50% {
+        transform: translateX(3%);
+    }
+
 }
 
 
@@ -133,6 +460,10 @@ nav a:hover::after {
 ======================================== */
 
 .top-info {
+    position: relative;
+
+    z-index: 5;
+
     padding: 120px 32px 0;
 
     display: flex;
@@ -152,7 +483,26 @@ nav a:hover::after {
 ======================================== */
 
 .intro {
-    padding: 90px 7% 80px;
+    position: relative;
+
+    z-index: 5;
+
+    min-height: 65vh;
+
+    padding: 90px 7% 100px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    animation:
+        introReveal
+        1.2s
+        1.7s
+        cubic-bezier(.2, .7, .2, 1)
+        both;
 }
 
 .small-text {
@@ -166,7 +516,7 @@ nav a:hover::after {
 }
 
 .intro h1 {
-    max-width: 1000px;
+    max-width: 1100px;
 
     font-size: clamp(45px, 7vw, 100px);
 
@@ -183,21 +533,77 @@ nav a:hover::after {
     color: #999;
 }
 
+.intro-arrow {
+    margin-top: 55px;
+
+    font-size: 25px;
+
+    animation:
+        arrowMove
+        2s
+        ease-in-out
+        infinite;
+}
+
+@keyframes introReveal {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(80px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes arrowMove {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+
+}
+
 
 /* ========================================
    FOTO
 ======================================== */
 
 .photo-section {
+    position: relative;
+
+    z-index: 5;
+
     width: 100%;
 
-    padding: 0 7% 100px;
+    padding: 0 7% 140px;
+
+    animation:
+        photoReveal
+        1.3s
+        1.9s
+        cubic-bezier(.2, .7, .2, 1)
+        both;
 }
 
 .photo-wrapper {
+    position: relative;
+
     width: 100%;
 
     height: 65vh;
+
+    min-height: 450px;
 
     overflow: hidden;
 
@@ -208,6 +614,16 @@ nav a:hover::after {
     justify-content: center;
 
     align-items: center;
+
+    transform:
+        translate(
+            var(--photo-x, 0px),
+            var(--photo-y, 0px)
+        );
+
+    transition:
+        transform 0.5s
+        cubic-bezier(.2, .7, .2, 1);
 }
 
 .photo-wrapper img {
@@ -221,7 +637,9 @@ nav a:hover::after {
 
     display: block;
 
-    transition: transform 1s cubic-bezier(.2, .7, .2, 1);
+    transition:
+        transform 1.2s
+        cubic-bezier(.2, .7, .2, 1);
 }
 
 .photo-wrapper:hover img {
@@ -230,10 +648,80 @@ nav a:hover::after {
 
 
 /* ========================================
+   PHOTO RING
+======================================== */
+
+.photo-ring {
+    position: absolute;
+
+    width: 45%;
+
+    aspect-ratio: 1;
+
+    border: 1px solid
+        rgba(255, 255, 255, 0.45);
+
+    border-radius: 50%;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    animation:
+        photoRing
+        7s
+        ease-in-out
+        infinite;
+}
+
+.photo-ring::before,
+.photo-ring::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 8%;
+
+    border: 1px solid
+        rgba(255, 255, 255, 0.25);
+
+    border-radius: 50%;
+}
+
+.photo-ring::after {
+    inset: 18%;
+
+    border-color:
+        rgba(255, 255, 255, 0.18);
+}
+
+@keyframes photoRing {
+
+    0%,
+    100% {
+        transform:
+            scale(1)
+            rotate(0deg);
+    }
+
+    50% {
+        transform:
+            scale(1.08)
+            rotate(8deg);
+    }
+
+}
+
+
+/* ========================================
    STORY
 ======================================== */
 
 .story {
+    position: relative;
+
+    z-index: 5;
+
     min-height: 100vh;
 
     background: #111;
@@ -258,7 +746,7 @@ nav a:hover::after {
 }
 
 .story-content {
-    max-width: 800px;
+    max-width: 900px;
 }
 
 .story-title {
@@ -271,16 +759,34 @@ nav a:hover::after {
     margin-bottom: 50px;
 }
 
-.story-text {
-    font-size: clamp(28px, 4vw, 55px);
+.story-content h2 {
+    max-width: 900px;
 
-    line-height: 1.1;
+    font-size: clamp(40px, 6vw, 85px);
 
-    letter-spacing: -2px;
+    line-height: 0.98;
+
+    letter-spacing: -5px;
+
+    font-weight: 400;
 
     color: #eee;
 
-    margin-bottom: 40px;
+    margin-bottom: 70px;
+}
+
+.story-text {
+    max-width: 700px;
+
+    font-size: 20px;
+
+    line-height: 1.6;
+
+    letter-spacing: -0.3px;
+
+    color: #aaa;
+
+    margin-bottom: 30px;
 }
 
 
@@ -289,6 +795,10 @@ nav a:hover::after {
 ======================================== */
 
 .skills {
+    position: relative;
+
+    z-index: 5;
+
     min-height: 100vh;
 
     padding: 140px 10%;
@@ -298,6 +808,8 @@ nav a:hover::after {
     grid-template-columns: 20% 80%;
 
     align-items: start;
+
+    background: #f5f5f3;
 }
 
 .skills-content {
@@ -308,7 +820,7 @@ nav a:hover::after {
     border-top: 1px solid #ccc;
 }
 
-.skill-list div {
+.skill-item {
     display: flex;
 
     justify-content: space-between;
@@ -319,27 +831,61 @@ nav a:hover::after {
 
     border-bottom: 1px solid #ccc;
 
-    transition: padding 0.4s ease;
+    transition:
+        padding 0.4s ease,
+        background 0.4s ease;
 }
 
-.skill-list div:hover {
+.skill-item:hover {
     padding-left: 20px;
 
     padding-right: 20px;
+
+    background: #ececea;
 }
 
-.skill-list span {
+.skill-item span {
     font-size: 10px;
 
     color: #999;
 }
 
-.skill-list strong {
+.skill-item strong {
     font-size: clamp(25px, 4vw, 55px);
 
     font-weight: 400;
 
     letter-spacing: -2px;
+
+    transition:
+        transform 0.4s ease;
+}
+
+.skill-item b {
+    font-size: 25px;
+
+    font-weight: 400;
+
+    opacity: 0;
+
+    transform:
+        translate(-10px, 10px);
+
+    transition:
+        opacity 0.4s ease,
+        transform 0.4s ease;
+}
+
+.skill-item:hover strong {
+    transform:
+        translateX(5px);
+}
+
+.skill-item:hover b {
+    opacity: 1;
+
+    transform:
+        translate(0, 0);
 }
 
 
@@ -348,6 +894,10 @@ nav a:hover::after {
 ======================================== */
 
 .next-section {
+    position: relative;
+
+    z-index: 5;
+
     min-height: 70vh;
 
     background: #111;
@@ -365,6 +915,11 @@ nav a:hover::after {
     text-align: center;
 
     padding: 50px;
+
+    animation:
+        reveal
+        1s
+        ease both;
 }
 
 .next-section p {
@@ -388,70 +943,101 @@ nav a:hover::after {
 
     font-weight: 400;
 
-    transition: 0.4s ease;
+    transition:
+        opacity 0.4s ease;
 }
 
-.next-section a span {
+.next-section a b {
     display: inline-block;
 
-    transition: 0.4s ease;
+    font-weight: 400;
+
+    transition:
+        transform 0.4s ease;
 }
 
 .next-section a:hover {
     opacity: 0.6;
 }
 
-.next-section a:hover span {
-    transform: translate(10px, -10px);
+.next-section a:hover b {
+    transform:
+        translate(10px, -10px);
 }
 
 
 /* ========================================
-   FOOTER
+   BOTTOM
 ======================================== */
 
-footer {
-    padding: 25px 32px;
+.about-bottom {
+    position: absolute;
 
-    background: #111;
+    bottom: 30px;
 
-    color: #666;
+    left: 32px;
+    right: 32px;
+
+    z-index: 10;
 
     display: flex;
 
     justify-content: space-between;
 
-    font-size: 17px;
+    font-size: 8px;
 
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+
+    color: #777;
 }
 
 
 /* ========================================
-   ANIMATION
+   SCROLL REVEAL
 ======================================== */
 
-.intro,
-.photo-section,
-.story-content,
-.skills-content,
-.next-section {
-    animation: reveal 1s cubic-bezier(.2, .7, .2, 1) both;
+.reveal {
+    opacity: 0;
+
+    transform:
+        translateY(70px);
+
+    transition:
+        opacity 1s
+        cubic-bezier(.2, .7, .2, 1),
+
+        transform 1s
+        cubic-bezier(.2, .7, .2, 1);
 }
+
+.reveal.show {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* ========================================
+   GENERAL REVEAL
+======================================== */
 
 @keyframes reveal {
 
     from {
         opacity: 0;
 
-        transform: translateY(60px);
+        transform:
+            translateY(60px);
     }
 
     to {
         opacity: 1;
 
-        transform: translateY(0);
+        transform:
+            translateY(0);
     }
+
 }
 
 
@@ -461,55 +1047,111 @@ footer {
 
 @media (max-width: 600px) {
 
+    /* CUSTOM CURSOR */
+
+    .cursor,
+    .cursor-dot {
+        display: none;
+    }
+
+
+    /* NAVBAR */
+
     .navbar {
         padding: 22px 18px;
     }
 
-    /* LOGO TETAP DI ATAS */
     .logo {
-        position: fixed;
+        position: relative;
 
-        top: 22px;
-        left: 18px;
+        top: auto;
+        left: auto;
 
-        font-size: 14px;
-
-        z-index: 10000;
+        font-size: 13px;
     }
 
     nav {
-        gap: 15px;
+        gap: 14px;
 
         margin-left: auto;
     }
 
     nav a {
-        font-size: 11px;
+        font-size: 10px;
     }
+
+
+    /* LOADER */
+
+    .loader-content {
+        width: 82%;
+    }
+
+    .loader-content h1 {
+        font-size: 68px;
+
+        letter-spacing: -5px;
+    }
+
+
+    /* TOP INFO */
 
     .top-info {
         padding: 100px 18px 0;
 
         font-size: 7px;
+
+        letter-spacing: 1.5px;
     }
 
+
+    /* INTRO */
+
     .intro {
+        min-height: 60vh;
+
         padding: 70px 18px 80px;
     }
 
+    .small-text {
+        margin-bottom: 25px;
+
+        font-size: 8px;
+    }
+
     .intro h1 {
-        font-size: 55px;
+        font-size: 52px;
+
+        line-height: 0.92;
 
         letter-spacing: -4px;
     }
 
+    .intro-arrow {
+        margin-top: 40px;
+    }
+
+
+    /* PHOTO */
+
     .photo-section {
-        padding: 0 18px 100px;
+        padding: 0 18px 90px;
     }
 
     .photo-wrapper {
-        height: 60vh;
+        height: 55vh;
+
+        min-height: 350px;
+
+        transform: none;
     }
+
+    .photo-ring {
+        width: 70%;
+    }
+
+
+    /* STORY */
 
     .story {
         padding: 100px 25px;
@@ -521,9 +1163,26 @@ footer {
         margin-bottom: 60px;
     }
 
-    .story-text {
-        font-size: 30px;
+    .story-title {
+        margin-bottom: 35px;
     }
+
+    .story-content h2 {
+        font-size: 42px;
+
+        letter-spacing: -3px;
+
+        margin-bottom: 50px;
+    }
+
+    .story-text {
+        font-size: 18px;
+
+        line-height: 1.6;
+    }
+
+
+    /* SKILLS */
 
     .skills {
         padding: 100px 25px;
@@ -535,9 +1194,22 @@ footer {
         margin-bottom: 60px;
     }
 
-    .skill-list strong {
-        font-size: 25px;
+    .skill-item {
+        padding: 22px 0;
     }
+
+    .skill-item strong {
+        font-size: 24px;
+
+        letter-spacing: -1px;
+    }
+
+    .skill-item b {
+        font-size: 18px;
+    }
+
+
+    /* CTA */
 
     .next-section {
         min-height: 60vh;
@@ -546,12 +1218,55 @@ footer {
     }
 
     .next-section a {
-        font-size: 32px;
+        font-size: 31px;
+
+        letter-spacing: -2px;
     }
+
+
+    /* BOTTOM */
+
+    .about-bottom {
+        left: 18px;
+        right: 18px;
+
+        bottom: 20px;
+
+        font-size: 7px;
+    }
+
+
+    /* FOOTER */
 
     footer {
         padding: 20px;
 
         font-size: 7px;
     }
+
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (min-width: 601px) and (max-width: 1000px) {
+
+    .intro h1 {
+        font-size: 75px;
+    }
+
+    .photo-wrapper {
+        height: 55vh;
+    }
+
+    .story,
+    .skills {
+        grid-template-columns: 15% 85%;
+
+        padding-left: 7%;
+        padding-right: 7%;
+    }
+
 }

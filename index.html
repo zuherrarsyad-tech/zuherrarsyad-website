@@ -12,32 +12,93 @@
 
 <body>
 
-    <!-- ========================================
+    <!-- =========================
+         CUSTOM CURSOR
+    ========================== -->
+
+    <div class="cursor"></div>
+    <div class="cursor-dot"></div>
+
+
+    <!-- =========================
+         WELCOME SCREEN
+    ========================== -->
+
+    <div id="welcome-screen">
+
+        <div class="welcome-content">
+
+            <p class="welcome-small">
+                WELCOME TO
+            </p>
+
+            <h1>
+                ALFATHIN
+            </h1>
+
+            <!-- GARIS LOADING -->
+
+            <div class="loading-line">
+                <div class="loading-progress"></div>
+            </div>
+
+            <span class="welcome-year">
+                PORTFOLIO / 2026
+            </span>
+
+        </div>
+
+
+        <!-- INFORMASI SUDUT -->
+
+        <div class="welcome-corner welcome-left">
+            01
+        </div>
+
+        <div class="welcome-corner welcome-right">
+            WEB DEVELOPER
+        </div>
+
+    </div>
+
+
+    <!-- =========================
          NAVBAR
-    ======================================== -->
+    ========================== -->
 
     <header class="navbar">
 
         <a href="index.html" class="logo">
-            © Code by Alfathin
+            PORTFOLIO BY FATHIN
         </a>
 
         <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About me</a>
-            <a href="contact.html">Contact Me</a>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="about.html">
+                About me
+            </a>
+
+            <a href="contact.html">
+                Contact Me
+            </a>
+
         </nav>
 
     </header>
 
 
-    <!-- ========================================
+    <!-- =========================
          HERO
-    ======================================== -->
+    ========================== -->
 
     <section class="hero" id="home">
 
-        <!-- INFORMASI ATAS -->
+
+        <!-- HERO TOP -->
 
         <div class="hero-top">
 
@@ -52,47 +113,62 @@
         </div>
 
 
-       <!-- ========================================
-     LOCATION
-======================================== -->
+        <!-- =========================
+             LOCATION
+        ========================== -->
 
-<div class="location-wrapper">
+        <div class="location-wrapper">
 
-    <div class="portfolio-label">
-        PORTFOLIO BY FATHIN
-    </div>
+            <div class="portfolio-label">
+                PORTFOLIO BY FATHIN
+            </div>
 
-    <div class="location">
 
-        <div class="location-info">
+            <div class="location">
 
-            <span>
-                LOCATED
-            </span>
+                <div class="location-info">
 
-            <strong>
-                INDONESIA
-            </strong>
+                    <span>
+                        LOCATED
+                    </span>
+
+                    <strong>
+                        INDONESIA
+                    </strong>
+
+                </div>
+
+
+                <!-- EARTH BUTTON -->
+
+                <a
+                    href="https://www.google.com/maps/place/Indonesia"
+                    class="earth-button"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Buka lokasi Indonesia"
+                >
+
+                    <span class="earth-oval">
+
+                        <span class="earth-line line-one"></span>
+
+                        <span class="earth-line line-two"></span>
+
+                        <span class="earth-line line-three"></span>
+
+                    </span>
+
+                </a>
+
+            </div>
 
         </div>
 
-        <a
-            href="https://www.google.com/maps/place/6%C2%B024'17.0%22S+106%C2%B047'53.0%22E"
-            class="earth-button"
-            aria-label="Buka Google Maps"
-            target="_blank"
-        >
-            <span class="earth-icon"></span>
-        </a>
 
-    </div>
-
-</div>
-</div>
-
-        <!-- ========================================
+        <!-- =========================
              DESCRIPTION
-        ======================================== -->
+        ========================== -->
 
         <div class="description">
 
@@ -107,7 +183,6 @@
                 <strong>
                     Programming
                 </strong>
-
                 &<br>
 
                 <strong>
@@ -119,28 +194,24 @@
         </div>
 
 
-        <!-- ========================================
-             RUNNING TEXT
-        ======================================== -->
+        <!-- =========================
+             WAVE BACKGROUND
+        ========================== -->
 
-        <div class="running-wrapper">
+        <div class="wave-background">
 
-            <div class="running-track">
-
-                <span>
-                    Alfathin Zuhair A -
-                    Alfathin Zuhair A -
-                    Alfathin Zuhair A -
-                </span>
-
-            </div>
+            <div class="wave wave-1"></div>
+            <div class="wave wave-2"></div>
+            <div class="wave wave-3"></div>
+            <div class="wave wave-4"></div>
+            <div class="wave wave-5"></div>
 
         </div>
 
 
-        <!-- ========================================
-             FOTO
-        ======================================== -->
+        <!-- =========================
+             PHOTO
+        ========================== -->
 
         <div class="person">
 
@@ -152,9 +223,31 @@
         </div>
 
 
-        <!-- ========================================
-             BOTTOM
-        ======================================== -->
+        <!-- =========================
+             RUNNING TEXT
+        ========================== -->
+
+        <div class="running-wrapper">
+
+            <div class="running-track">
+
+                <span>
+                    Alfathin Zuhair A -
+                    Alfathin Zuhair A -
+                    Alfathin Zuhair A -
+                    Alfathin Zuhair A -
+                    Alfathin Zuhair A -
+                    Alfathin Zuhair A -
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             HERO BOTTOM
+        ========================== -->
 
         <div class="hero-bottom">
 
@@ -171,101 +264,74 @@
     </section>
 
 
-    <!-- ========================================
+    <!-- =========================
          ABOUT
-    ======================================== -->
+    ========================== -->
 
-    <section
-        class="about"
-        id="about"
-    >
-
-        <div class="section-number">
-            01
-        </div>
+    <section class="about" id="about">
 
         <div class="about-content">
 
-            <div class="small-title">
+            <!-- LABEL -->
+
+            <span class="section-number">
                 TENTANG SAYA
-            </div>
+            </span>
+
+
+            <!-- JUDUL BESAR -->
 
             <h2>
-
                 Membangun sesuatu
-
-                <br>
-
-                <span>
-                    yang bermakna.
-                </span>
-
+                <span>yang bermakna.</span>
             </h2>
 
-            <p class="about-text">
 
-                Saya adalah seorang pelajar yang
-                tertarik dengan dunia teknologi,
-                web development, dan programming.
+            <!-- DESKRIPSI -->
 
-                <br><br>
+            <div class="about-text">
 
-                Saya senang mempelajari teknologi
-                baru dan mengubah ide menjadi
-                karya digital yang bermanfaat.
+                <p>
+                    Saya adalah seorang pelajar yang tertarik dengan dunia
+                    teknologi, web development, dan programming.
+                </p>
 
-            </p>
+                <p>
+                    Saya senang mempelajari teknologi baru dan mengubah ide
+                    menjadi karya digital yang bermanfaat.
+                </p>
+
+            </div>
 
         </div>
 
     </section>
 
 
-    <!-- ========================================
+    <!-- =========================
          CONTACT
-    ======================================== -->
+    ========================== -->
 
-    <section
-        class="contact"
-        id="contact"
-    >
-
-        <div class="section-number">
-            02
-        </div>
+    <section class="contact" id="contact">
 
         <div class="contact-content">
 
-            <div class="small-title">
-                LET'S CONNECT
-            </div>
+            <span class="section-number">
+                03 / CONTACT
+            </span>
+
 
             <h2>
-
-                Punya ide?
-
-                <br>
-
-                <span>
-                    Mari buat bersama.
-                </span>
-
+                Let's<br>
+                Connect.
             </h2>
 
 
-            <!-- EMAIL -->
-
             <a
                 href="mailto:zuherrarsyad@gmail.com"
-                class="email"
+                class="email-link"
             >
-
                 zuherrarsyad@gmail.com
-
-                <span>
-                    ↗
-                </span>
-
             </a>
 
         </div>
@@ -273,47 +339,289 @@
     </section>
 
 
-    <!-- ========================================
+    <!-- =========================
          FOOTER
-    ======================================== -->
+    ========================== -->
 
     <footer>
 
         <span>
-            © 2026 Alfathin
+            © 2026 ALFATHIN
         </span>
 
         <span>
-            Built by Alfathin — 2026
+            MADE WITH CODE
         </span>
 
     </footer>
 
 
-    <!-- ========================================
-         WELCOME SCREEN
-    ======================================== -->
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
 
-    <div class="welcome-screen">
+    <script>
 
-        <div class="welcome-content">
+        /* ========================================
+           WELCOME SCREEN
+        ======================================== */
 
-            <span class="welcome-xtra">
-                WELCOME TO
-            </span>
+        window.addEventListener("load", () => {
 
-            <h1>
-                ALFATHIN
-            </h1>
+            const welcome =
+                document.getElementById("welcome-screen");
 
-            <span class="welcome-line"></span>
+            setTimeout(() => {
 
-        </div>
+                welcome.classList.add("hide");
 
-    </div>
+            }, 3400);
+
+        });
 
 
-    
+        /* ========================================
+           CUSTOM CURSOR
+        ======================================== */
+
+        const cursor =
+            document.querySelector(".cursor");
+
+        const cursorDot =
+            document.querySelector(".cursor-dot");
+
+        let mouseX = 0;
+        let mouseY = 0;
+
+        let cursorX = 0;
+        let cursorY = 0;
+
+
+        document.addEventListener(
+            "mousemove",
+            (e) => {
+
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+
+                cursorDot.style.left =
+                    mouseX + "px";
+
+                cursorDot.style.top =
+                    mouseY + "px";
+
+            }
+        );
+
+
+        function animateCursor() {
+
+            cursorX +=
+                (mouseX - cursorX) * 0.12;
+
+            cursorY +=
+                (mouseY - cursorY) * 0.12;
+
+            cursor.style.left =
+                cursorX + "px";
+
+            cursor.style.top =
+                cursorY + "px";
+
+            requestAnimationFrame(
+                animateCursor
+            );
+
+        }
+
+        animateCursor();
+
+
+        /* ========================================
+           CURSOR HOVER
+        ======================================== */
+
+        const interactiveElements =
+            document.querySelectorAll(
+                "a, .location"
+            );
+
+
+        interactiveElements.forEach(
+            (element) => {
+
+                element.addEventListener(
+                    "mouseenter",
+                    () => {
+
+                        cursor.classList.add(
+                            "active"
+                        );
+
+                    }
+                );
+
+
+                element.addEventListener(
+                    "mouseleave",
+                    () => {
+
+                        cursor.classList.remove(
+                            "active"
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+        /* ========================================
+           WAVE MOVEMENT
+        ======================================== */
+
+        const waveBackground =
+            document.querySelector(
+                ".wave-background"
+            );
+
+
+        let targetX = 0;
+        let targetY = 0;
+
+        let currentX = 0;
+        let currentY = 0;
+
+
+        document.addEventListener(
+            "mousemove",
+            (e) => {
+
+                if (!waveBackground) return;
+
+                targetX =
+                    (
+                        e.clientX /
+                        window.innerWidth -
+                        0.5
+                    ) * 45;
+
+                targetY =
+                    (
+                        e.clientY /
+                        window.innerHeight -
+                        0.5
+                    ) * 30;
+
+            }
+        );
+
+
+        function animateWave() {
+
+            currentX +=
+                (targetX - currentX) * 0.035;
+
+            currentY +=
+                (targetY - currentY) * 0.035;
+
+
+            if (waveBackground) {
+
+                waveBackground.style.transform =
+                    `translate(
+                        calc(-50% + ${currentX}px),
+                        ${currentY}px
+                    )`;
+
+            }
+
+
+            requestAnimationFrame(
+                animateWave
+            );
+
+        }
+
+        animateWave();
+
+
+        /* ========================================
+           SCROLL WAVE
+        ======================================== */
+
+        window.addEventListener(
+            "scroll",
+            () => {
+
+                if (!waveBackground) return;
+
+                const scroll =
+                    window.scrollY;
+
+                if (
+                    scroll <
+                    window.innerHeight
+                ) {
+
+                    waveBackground.style.marginTop =
+                        `${scroll * 0.05}px`;
+
+                }
+
+            }
+        );
+
+
+        /* ========================================
+           SECTION REVEAL
+        ======================================== */
+
+        const sections =
+            document.querySelectorAll(
+                ".about, .contact"
+            );
+
+
+        function revealSections() {
+
+            sections.forEach(
+                (section) => {
+
+                    const position =
+                        section
+                            .getBoundingClientRect()
+                            .top;
+
+
+                    if (
+                        position <
+                        window.innerHeight - 100
+                    ) {
+
+                        section.classList.add(
+                            "show"
+                        );
+
+                    }
+
+                }
+            );
+
+        }
+
+
+        window.addEventListener(
+            "scroll",
+            revealSections
+        );
+
+
+        revealSections();
+
+    </script>
+
 </body>
 
 </html>
