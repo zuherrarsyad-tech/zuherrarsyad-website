@@ -1,3 +1,4 @@
+css
 /* ========================================
    RESET
 ======================================== */
@@ -26,19 +27,15 @@ body {
 
 .cursor {
     position: fixed;
-
+    top: 0;
+    left: 0;
     width: 35px;
     height: 35px;
-
     border: 1px solid #111;
     border-radius: 50%;
-
     pointer-events: none;
-
-    z-index: 9999;
-
+    z-index: 99999;
     transform: translate(-50%, -50%);
-
     transition:
         width 0.3s ease,
         height 0.3s ease,
@@ -47,277 +44,114 @@ body {
 
 .cursor-dot {
     position: fixed;
-
+    top: 0;
+    left: 0;
     width: 5px;
     height: 5px;
-
     background: #111;
-
     border-radius: 50%;
-
     pointer-events: none;
-
-    z-index: 10000;
-
+    z-index: 100000;
     transform: translate(-50%, -50%);
 }
 
 .cursor.active {
     width: 55px;
     height: 55px;
-
     background: rgba(0, 0, 0, 0.06);
 }
 
 
 /* ========================================
-   WELCOME SCREEN
+   MULTILINGUAL WELCOME SCREEN
 ======================================== */
 
 #welcome-screen {
     position: fixed;
-
     inset: 0;
-
     width: 100%;
     height: 100vh;
-
+    height: 100dvh;
     background: #000;
-
     display: flex;
-
     justify-content: center;
     align-items: center;
-
-    z-index: 99999;
-
+    z-index: 99998;
     color: #fff;
-
     overflow: hidden;
-
     opacity: 1;
     visibility: visible;
-
+    clip-path: inset(0 0 0 0);
     transition:
-        opacity 1s cubic-bezier(
-            0.77,
-            0,
-            0.175,
-            1
-        ),
-        visibility 1s ease;
+        opacity 0.9s cubic-bezier(0.76, 0, 0.24, 1),
+        clip-path 1s cubic-bezier(0.76, 0, 0.24, 1),
+        visibility 0.9s ease;
 }
-
-
-/* ========================================
-   WELCOME SCREEN HIDE
-======================================== */
 
 #welcome-screen.hide {
     opacity: 0;
     visibility: hidden;
+    clip-path: inset(0 0 100% 0);
+    pointer-events: none;
 }
-
-
-/* ========================================
-   WELCOME CONTENT
-======================================== */
 
 .welcome-content {
-    width: min(900px, 85%);
-
-    text-align: center;
-
     position: relative;
-
-    animation:
-        welcomeContentIn 1.2s
-        cubic-bezier(
-            0.22,
-            1,
-            0.36,
-            1
-        )
-        forwards;
+    width: min(1000px, 90%);
+    text-align: center;
+    animation: welcomeContentIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
-
-
-/* ========================================
-   WELCOME TO
-======================================== */
 
 .welcome-small {
+    min-height: 1.5em;
     margin-bottom: 28px;
-
     font-size: 11px;
-
     font-weight: 400;
-
-    letter-spacing: 7px;
-
+    letter-spacing: 6px;
     color: #fff;
-
-    opacity: 0;
-
-    animation:
-        welcomeSmallIn 0.9s
-        0.2s
-        ease forwards;
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+        opacity 0.22s ease,
+        transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-
-/* ========================================
-   ALFATHIN
-======================================== */
+.welcome-small.is-changing {
+    opacity: 0;
+    transform: translateY(10px);
+}
 
 .welcome-content h1 {
     margin: 0;
-
-    font-size:
-        clamp(
-            70px,
-            13vw,
-            180px
-        );
-
+    font-size: clamp(65px, 13vw, 180px);
     font-weight: 400;
-
-    line-height: 0.85;
-
+    line-height: 0.95;
     letter-spacing: -6px;
-
     color: #fff;
-
     opacity: 0;
-
-    transform:
-        translateY(35px)
-        scale(0.96);
-
-    animation:
-        nameReveal 1.3s
-        0.35s
-        cubic-bezier(
-            0.22,
-            1,
-            0.36,
-            1
-        )
-        forwards;
+    transform: translateY(35px) scale(0.96);
+    animation: nameReveal 1.3s 0.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
-
-
-/* ========================================
-   LOADING LINE
-======================================== */
-
-.loading-line {
-    position: relative;
-
-    width: min(430px, 65%);
-
-    height: 1px;
-
-    margin: 42px auto 0;
-
-    background: rgba(
-        255,
-        255,
-        255,
-        0.25
-    );
-
-    overflow: hidden;
-
-    opacity: 0;
-
-    animation:
-        lineAppear 0.6s
-        0.8s
-        ease forwards;
-}
-
-
-/* ========================================
-   LOADING PROGRESS
-======================================== */
-
-.loading-progress {
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 0;
-    height: 100%;
-
-    background: #fff;
-
-    animation:
-        loadingAnimation 2.2s
-        0.9s
-        cubic-bezier(
-            0.65,
-            0,
-            0.35,
-            1
-        )
-        forwards;
-}
-
-
-/* ========================================
-   PORTFOLIO / 2026
-======================================== */
 
 .welcome-year {
     display: block;
-
-    margin-top: 18px;
-
+    margin-top: 28px;
     font-size: 9px;
-
     font-weight: 400;
-
     letter-spacing: 5px;
-
     color: #fff;
-
     opacity: 0;
-
-    animation:
-        yearReveal 0.8s
-        1s
-        ease forwards;
+    animation: yearReveal 0.8s 0.7s ease forwards;
 }
-
-
-/* ========================================
-   WELCOME CORNER
-======================================== */
 
 .welcome-corner {
     position: absolute;
-
     bottom: 30px;
-
     font-size: 8px;
-
     letter-spacing: 3px;
-
-    color: rgba(
-        255,
-        255,
-        255,
-        0.45
-    );
-
+    color: rgba(255, 255, 255, 0.5);
     opacity: 0;
-
-    animation:
-        cornerReveal 1s
-        1.2s
-        ease forwards;
+    animation: cornerReveal 0.8s 0.8s ease forwards;
 }
 
 .welcome-left {
@@ -334,121 +168,44 @@ body {
 ======================================== */
 
 @keyframes welcomeContentIn {
-
     from {
         opacity: 0;
-
-        transform:
-            translateY(25px);
+        transform: translateY(25px);
     }
 
     to {
         opacity: 1;
-
-        transform:
-            translateY(0);
+        transform: translateY(0);
     }
-
 }
-
-
-@keyframes welcomeSmallIn {
-
-    from {
-        opacity: 0;
-
-        transform:
-            translateY(15px);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            translateY(0);
-    }
-
-}
-
 
 @keyframes nameReveal {
-
     from {
         opacity: 0;
-
-        transform:
-            translateY(35px)
-            scale(0.96);
-
-        letter-spacing: 15px;
+        transform: translateY(35px) scale(0.96);
+        letter-spacing: 12px;
     }
 
     to {
         opacity: 1;
-
-        transform:
-            translateY(0)
-            scale(1);
-
+        transform: translateY(0) scale(1);
         letter-spacing: -6px;
     }
-
 }
-
-
-@keyframes lineAppear {
-
-    from {
-        opacity: 0;
-
-        transform:
-            scaleX(0);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            scaleX(1);
-    }
-
-}
-
-
-@keyframes loadingAnimation {
-
-    from {
-        width: 0%;
-    }
-
-    to {
-        width: 100%;
-    }
-
-}
-
 
 @keyframes yearReveal {
-
     from {
         opacity: 0;
-
-        transform:
-            translateY(10px);
+        transform: translateY(10px);
     }
 
     to {
         opacity: 0.65;
-
-        transform:
-            translateY(0);
+        transform: translateY(0);
     }
-
 }
 
-
 @keyframes cornerReveal {
-
     from {
         opacity: 0;
     }
@@ -456,7 +213,6 @@ body {
     to {
         opacity: 1;
     }
-
 }
 
 
@@ -466,35 +222,23 @@ body {
 
 .navbar {
     position: absolute;
-
     top: 0;
     left: 0;
-
     width: 100%;
-
     padding: 30px 32px;
-
     display: flex;
-
     justify-content: space-between;
     align-items: center;
-
     z-index: 100;
 }
 
 .logo {
     color: #111;
-
     text-decoration: none;
-
     font-size: 13px;
-
     font-weight: 700;
-
     letter-spacing: 2px;
-
-    transition:
-        opacity 0.3s ease;
+    transition: opacity 0.3s ease;
 }
 
 .logo:hover {
@@ -503,39 +247,27 @@ body {
 
 .navbar nav {
     display: flex;
-
     gap: 38px;
 }
 
 .navbar nav a {
     color: #111;
-
     text-decoration: none;
-
     font-size: 12px;
-
     font-weight: 500;
-
     letter-spacing: 1px;
-
     position: relative;
 }
 
 .navbar nav a::after {
     content: "";
-
     position: absolute;
-
     left: 0;
     bottom: -6px;
-
     width: 0;
     height: 1px;
-
     background: #111;
-
-    transition:
-        width 0.3s ease;
+    transition: width 0.3s ease;
 }
 
 .navbar nav a:hover::after {
@@ -549,41 +281,24 @@ body {
 
 .hero {
     position: relative;
-
     width: 100%;
-
     height: 100vh;
-
+    height: 100dvh;
     min-height: 680px;
-
     background: #f5f5f3;
-
     overflow: hidden;
-
     border-bottom: 1px solid #111;
 }
 
-
-/* ========================================
-   HERO TOP
-======================================== */
-
 .hero-top {
     position: absolute;
-
     top: 95px;
-
     left: 32px;
     right: 32px;
-
     display: flex;
-
     justify-content: space-between;
-
     font-size: 10px;
-
     letter-spacing: 3px;
-
     z-index: 50;
 }
 
@@ -594,97 +309,56 @@ body {
 
 .location-wrapper {
     position: absolute;
-
     left: 0;
-
     top: 58%;
-
-    transform:
-        translateY(-50%);
-
+    transform: translateY(-50%);
     z-index: 50;
 }
 
 .portfolio-label {
     margin-left: 32px;
-
     margin-bottom: 10px;
-
     font-size: 10px;
-
     font-weight: 700;
-
     letter-spacing: 3px;
-
     color: #111;
 }
 
 .location {
     width: 265px;
-
     min-height: 95px;
-
-    padding:
-        18px
-        20px
-        18px
-        32px;
-
+    padding: 18px 20px 18px 32px;
     background: #111;
-
     color: white;
-
-    border-radius:
-        0
-        60px
-        60px
-        0;
-
+    border-radius: 0 60px 60px 0;
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
-
     gap: 20px;
-
     transition:
-        width 0.5s
-        cubic-bezier(
-            0.22,
-            1,
-            0.36,
-            1
-        ),
+        width 0.5s cubic-bezier(0.22, 1, 0.36, 1),
         transform 0.5s ease;
 }
 
 .location:hover {
     width: 285px;
-
-    transform:
-        translateX(8px);
+    transform: translateX(8px);
 }
 
 .location-info {
     display: flex;
-
     flex-direction: column;
-
     gap: 5px;
 }
 
 .location-info span {
     font-size: 9px;
-
     letter-spacing: 3px;
-
     opacity: 0.65;
 }
 
 .location-info strong {
     font-size: 17px;
-
     letter-spacing: 2px;
 }
 
@@ -696,138 +370,74 @@ body {
 .earth-button {
     width: 50px;
     height: 50px;
-
     flex-shrink: 0;
-
     border-radius: 50%;
-
     display: flex;
-
     justify-content: center;
     align-items: center;
-
     text-decoration: none;
-
     background: white;
-
     border: 2px solid white;
-
     overflow: hidden;
-
     transition:
-        transform 0.6s
-        cubic-bezier(
-            0.22,
-            1,
-            0.36,
-            1
-        ),
+        transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
         box-shadow 0.6s ease;
 }
 
 .earth-button:hover {
-    transform:
-        rotate(-12deg)
-        scale(1.12);
-
-    box-shadow:
-        0
-        8px
-        20px
-        rgba(
-            0,
-            0,
-            0,
-            0.25
-        );
+    transform: rotate(-12deg) scale(1.12);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
-
-
-/* ========================================
-   EARTH OVAL
-======================================== */
 
 .earth-oval {
     position: relative;
-
     width: 31px;
     height: 39px;
-
     border: 2px solid #111;
-
     border-radius: 50%;
-
     overflow: hidden;
-
-    background:
-        linear-gradient(
-            90deg,
-            #111 0%,
-            #111 18%,
-            white 18%,
-            white 50%,
-            #111 50%,
-            #111 70%,
-            white 70%,
-            white 100%
-        );
-
-    transform:
-        rotate(-15deg);
-
-    transition:
-        transform 0.7s
-        cubic-bezier(
-            0.22,
-            1,
-            0.36,
-            1
-        );
+    background: linear-gradient(
+        90deg,
+        #111 0%,
+        #111 18%,
+        white 18%,
+        white 50%,
+        #111 50%,
+        #111 70%,
+        white 70%,
+        white 100%
+    );
+    transform: rotate(-15deg);
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .earth-button:hover .earth-oval {
-    transform:
-        rotate(15deg)
-        scale(1.08);
+    transform: rotate(15deg) scale(1.08);
 }
-
-
-/* ========================================
-   EARTH LINES
-======================================== */
 
 .earth-line {
     position: absolute;
-
     left: 50%;
-
-    transform:
-        translateX(-50%);
-
-    border:
-        1.5px solid #111;
-
+    transform: translateX(-50%);
+    border: 1.5px solid #111;
     border-radius: 50%;
 }
 
 .line-one {
     width: 13px;
     height: 35px;
-
     top: 0;
 }
 
 .line-two {
     width: 27px;
     height: 14px;
-
     top: 11px;
 }
 
 .line-three {
     width: 19px;
     height: 7px;
-
     top: 25px;
 }
 
@@ -838,31 +448,22 @@ body {
 
 .description {
     position: absolute;
-
     right: 7%;
-
     top: 34%;
-
     z-index: 40;
-
     display: flex;
-
     gap: 18px;
-
     align-items: flex-start;
 }
 
 .description .arrow {
     font-size: 35px;
-
     font-weight: 300;
 }
 
 .description p {
     font-size: 27px;
-
     line-height: 1.05;
-
     letter-spacing: -1px;
 }
 
@@ -877,371 +478,151 @@ body {
 
 .wave-background {
     position: absolute;
-
     left: 50%;
-
     bottom: -7%;
-
     width: 760px;
     height: 760px;
-
-    transform:
-        translateX(-50%);
-
+    transform: translateX(-50%);
     z-index: 2;
-
     pointer-events: none;
 }
 
 .wave {
     position: absolute;
-
     left: 50%;
     top: 50%;
-
-    transform:
-        translate(-50%, -50%);
-
+    transform: translate(-50%, -50%);
     border-radius: 50%;
-
-    border:
-        2px solid transparent;
-
-    animation:
-        waveMove 6s
-        ease-in-out
-        infinite;
+    border: 2px solid transparent;
+    animation: waveMove 6s ease-in-out infinite;
 }
-
-
-/* ========================================
-   WAVE 1
-======================================== */
 
 .wave-1 {
     width: 330px;
     height: 330px;
-
-    border-color:
-        rgba(
-            0,
-            0,
-            0,
-            0.80
-        );
-
-    box-shadow:
-        0
-        0
-        35px
-        rgba(
-            0,
-            0,
-            0,
-            0.15
-        );
-
-    animation-delay: 0s;
+    border-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 35px rgba(0, 0, 0, 0.15);
 }
-
-
-/* ========================================
-   WAVE 2
-======================================== */
 
 .wave-2 {
     width: 430px;
     height: 430px;
-
-    border-color:
-        rgba(
-            45,
-            45,
-            45,
-            0.65
-        );
-
-    box-shadow:
-        0
-        0
-        45px
-        rgba(
-            0,
-            0,
-            0,
-            0.12
-        );
-
+    border-color: rgba(45, 45, 45, 0.65);
+    box-shadow: 0 0 45px rgba(0, 0, 0, 0.12);
     animation-delay: -1s;
 }
-
-
-/* ========================================
-   WAVE 3
-======================================== */
 
 .wave-3 {
     width: 530px;
     height: 530px;
-
-    border-color:
-        rgba(
-            90,
-            90,
-            90,
-            0.50
-        );
-
-    box-shadow:
-        0
-        0
-        50px
-        rgba(
-            0,
-            0,
-            0,
-            0.10
-        );
-
+    border-color: rgba(90, 90, 90, 0.5);
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
     animation-delay: -2s;
 }
-
-
-/* ========================================
-   WAVE 4
-======================================== */
 
 .wave-4 {
     width: 630px;
     height: 630px;
-
-    border-color:
-        rgba(
-            150,
-            150,
-            150,
-            0.38
-        );
-
+    border-color: rgba(150, 150, 150, 0.38);
     animation-delay: -3s;
 }
-
-
-/* ========================================
-   WAVE 5
-======================================== */
 
 .wave-5 {
     width: 730px;
     height: 730px;
-
-    border-color:
-        rgba(
-            255,
-            255,
-            255,
-            0.85
-        );
-
-    box-shadow:
-        0
-        0
-        60px
-        rgba(
-            255,
-            255,
-            255,
-            0.20
-        );
-
+    border-color: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 0 60px rgba(255, 255, 255, 0.2);
     animation-delay: -4s;
 }
 
-
-/* ========================================
-   WAVE ANIMATION
-======================================== */
-
 @keyframes waveMove {
-
-    0% {
-
-        transform:
-            translate(-50%, -50%)
-            scale(0.96);
-
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(0.96);
         opacity: 0.55;
     }
 
     50% {
-
-        transform:
-            translate(-50%, -50%)
-            scale(1.04);
-
+        transform: translate(-50%, -50%) scale(1.04);
         opacity: 1;
     }
-
-    100% {
-
-        transform:
-            translate(-50%, -50%)
-            scale(0.96);
-
-        opacity: 0.55;
-    }
-
 }
 
 
 /* ========================================
-   PERSON / PHOTO
+   PROFILE PHOTO
 ======================================== */
 
 .person {
     position: absolute;
-
     left: 50%;
     bottom: 0;
-
     height: 110%;
-
     z-index: 5;
-
-    transform:
-        translateX(-50%);
-
+    transform: translateX(-50%);
     display: flex;
-
     align-items: flex-end;
     justify-content: center;
-
-    animation:
-        fotoMasuk 1.3s
-        ease-out;
+    animation: fotoMasuk 1.3s ease-out;
 }
 
 .person img {
     height: 100%;
-
     width: auto;
-
     display: block;
-
     object-fit: contain;
-
-    filter:
-        drop-shadow(
-            0
-            20px
-            30px
-            rgba(
-                0,
-                0,
-                0,
-                0.15
-            )
-        );
+    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.15));
 }
 
-
-/* ========================================
-   PHOTO ENTRANCE
-======================================== */
-
 @keyframes fotoMasuk {
-
     from {
-
         opacity: 0;
-
-        transform:
-            translateX(-50%)
-            translateY(60px);
+        transform: translateX(-50%) translateY(60px);
     }
 
     to {
-
         opacity: 1;
-
-        transform:
-            translateX(-50%)
-            translateY(0);
+        transform: translateX(-50%) translateY(0);
     }
-
 }
 
 
 /* ========================================
    RUNNING TEXT
-   NORMAL / TIDAK BOLD
 ======================================== */
 
 .running-wrapper {
     position: absolute;
-
     left: 0;
-
     bottom: 3%;
-
     width: 100%;
-
     overflow: hidden;
-
     z-index: 20;
-
     pointer-events: none;
 }
 
 .running-track {
-
+    width: max-content;
     white-space: nowrap;
-
-    animation:
-        runningText 8s
-        linear
-        infinite;
+    animation: runningText 10s linear infinite;
 }
 
 .running-track span {
-
     display: inline-block;
-
-    font-size:
-        clamp(
-            80px,
-            17vw,
-            290px
-        );
-
+    font-size: clamp(80px, 17vw, 290px);
     font-weight: 400;
-
     letter-spacing: -10px;
-
     color: #000;
-
     text-shadow: none;
 }
 
-
-/* ========================================
-   RUNNING TEXT ANIMATION
-======================================== */
-
 @keyframes runningText {
-
     from {
-
-        transform:
-            translateX(0);
+        transform: translateX(0);
     }
 
     to {
-
-        transform:
-            translateX(-50%);
+        transform: translateX(-50%);
     }
-
 }
 
 
@@ -1251,20 +632,13 @@ body {
 
 .hero-bottom {
     position: absolute;
-
     left: 32px;
     right: 32px;
-
     bottom: 28px;
-
     display: flex;
-
     justify-content: space-between;
-
     font-size: 10px;
-
     letter-spacing: 3px;
-
     z-index: 50;
 }
 
@@ -1275,34 +649,21 @@ body {
 
 .about {
     min-height: 100vh;
-
     background: #111;
-
     color: white;
-
-    padding:
-        150px 8%;
-
+    padding: 150px 8%;
     display: flex;
-
     align-items: center;
-
     opacity: 0;
-
-    transform:
-        translateY(50px);
-
+    transform: translateY(50px);
     transition:
         opacity 0.9s ease,
         transform 0.9s ease;
 }
 
 .about.show {
-
     opacity: 1;
-
-    transform:
-        translateY(0);
+    transform: translateY(0);
 }
 
 .about-content {
@@ -1310,47 +671,34 @@ body {
 }
 
 .section-number {
-
     display: block;
-
     margin-bottom: 35px;
-
     font-size: 10px;
-
     letter-spacing: 4px;
-
     opacity: 0.5;
 }
 
 .about h2 {
-
-    font-size:
-        clamp(
-            50px,
-            8vw,
-            110px
-        );
-
-    line-height: 0.8;
-
+    font-size: clamp(50px, 8vw, 110px);
+    line-height: 0.9;
     letter-spacing: -4px;
-
     font-weight: 500;
-
     margin-bottom: 45px;
 }
 
+.about h2 span {
+    display: block;
+}
+
 .about p {
-
     max-width: 700px;
-
     font-size: 16px;
-
     line-height: 1.7;
-
     color: #ccc;
+}
 
-    white-space: pre-line;
+.about-text p + p {
+    margin-top: 15px;
 }
 
 
@@ -1359,36 +707,22 @@ body {
 ======================================== */
 
 .contact {
-
     min-height: 80vh;
-
     background: #f5f5f3;
-
     color: #111;
-
-    padding:
-        150px 8%;
-
+    padding: 150px 8%;
     display: flex;
-
     align-items: center;
-
     opacity: 0;
-
-    transform:
-        translateY(50px);
-
+    transform: translateY(50px);
     transition:
         opacity 0.9s ease,
         transform 0.9s ease;
 }
 
 .contact.show {
-
     opacity: 1;
-
-    transform:
-        translateY(0);
+    transform: translateY(0);
 }
 
 .contact-content {
@@ -1396,36 +730,19 @@ body {
 }
 
 .contact h2 {
-
-    font-size:
-        clamp(
-            70px,
-            12vw,
-            170px
-        );
-
-    line-height: 0.82;
-
+    font-size: clamp(70px, 12vw, 170px);
+    line-height: 0.9;
     letter-spacing: -7px;
-
     margin-bottom: 60px;
 }
 
 .email-link {
-
     color: #111;
-
     font-size: 20px;
-
     text-decoration: none;
-
-    border-bottom:
-        1px solid #111;
-
+    border-bottom: 1px solid #111;
     padding-bottom: 8px;
-
-    transition:
-        opacity 0.3s ease;
+    transition: opacity 0.3s ease;
 }
 
 .email-link:hover {
@@ -1438,20 +755,12 @@ body {
 ======================================== */
 
 footer {
-
     background: #111;
-
     color: white;
-
-    padding:
-        25px 32px;
-
+    padding: 25px 32px;
     display: flex;
-
     justify-content: space-between;
-
     font-size: 9px;
-
     letter-spacing: 3px;
 }
 
@@ -1461,56 +770,41 @@ footer {
 ======================================== */
 
 @media (max-width: 900px) {
-
     .navbar {
-
         padding: 25px;
     }
 
     .navbar nav {
-
         gap: 20px;
     }
 
     .hero-top {
-
         left: 25px;
         right: 25px;
     }
 
     .hero-bottom {
-
         left: 25px;
         right: 25px;
     }
 
     .person {
-
         height: 78%;
     }
 
     .wave-background {
-
         width: 650px;
         height: 650px;
     }
 
     .description {
-
         right: 5%;
         top: 30%;
     }
 
     .description p {
-
         font-size: 21px;
     }
-
-    .location-wrapper {
-
-        top: 58%;
-    }
-
 }
 
 
@@ -1519,385 +813,218 @@ footer {
 ======================================== */
 
 @media (max-width: 600px) {
-
-    body {
-        cursor: auto;
-    }
-
     .cursor,
     .cursor-dot {
         display: none;
     }
 
-
-    /* =========================
-       NAVBAR
-    ========================== */
-
     .navbar {
-
-        padding:
-            22px 18px;
-
-        align-items:
-            flex-start;
+        padding: 22px 18px;
+        align-items: flex-start;
     }
 
     .logo {
-
         font-size: 10px;
-
-        letter-spacing: 1.5px;
+        letter-spacing: 1px;
     }
 
     .navbar nav {
-
-        gap: 14px;
+        gap: 12px;
     }
 
     .navbar nav a {
-
         font-size: 9px;
     }
 
-
-    /* =========================
-       WELCOME
-    ========================== */
-
     .welcome-small {
-
         font-size: 8px;
-
-        letter-spacing: 5px;
-
+        letter-spacing: 4px;
         margin-bottom: 22px;
     }
 
     .welcome-content h1 {
-
-        font-size:
-            clamp(
-                48px,
-                14vw,
-                90px
-            );
-
+        font-size: clamp(48px, 14vw, 90px);
         letter-spacing: -3px;
     }
 
-    .loading-line {
-
-        width: 70%;
-
-        margin-top: 30px;
-    }
-
     .welcome-year {
-
         font-size: 7px;
-
         letter-spacing: 3px;
-
-        margin-top: 15px;
+        margin-top: 20px;
     }
 
     .welcome-corner {
-
         bottom: 20px;
-
         font-size: 6px;
-
         letter-spacing: 2px;
     }
 
     .welcome-left {
-
         left: 18px;
     }
 
     .welcome-right {
-
         right: 18px;
     }
 
-
-    /* =========================
-       HERO
-    ========================== */
-
     .hero {
-
         min-height: 650px;
     }
 
-
-    /* =========================
-       HERO TOP
-    ========================== */
-
     .hero-top {
-
         top: 80px;
-
         left: 18px;
         right: 18px;
-
         font-size: 8px;
-
         letter-spacing: 2px;
     }
 
-
-    /* =========================
-       LOCATION
-    ========================== */
-
     .location-wrapper {
-
         top: 55%;
     }
 
     .portfolio-label {
-
         margin-left: 20px;
-
         font-size: 8px;
-
         letter-spacing: 2px;
     }
 
     .location {
-
         width: 210px;
-
         min-height: 78px;
-
-        padding:
-            14px
-            15px
-            14px
-            20px;
+        padding: 14px 15px 14px 20px;
     }
 
     .location:hover {
-
         width: 225px;
     }
 
     .location-info span {
-
         font-size: 7px;
     }
 
     .location-info strong {
-
         font-size: 13px;
     }
 
-
-    /* =========================
-       EARTH
-    ========================== */
-
     .earth-button {
-
         width: 42px;
         height: 42px;
     }
 
     .earth-oval {
-
         width: 25px;
         height: 32px;
     }
 
     .line-one {
-
         width: 10px;
         height: 28px;
     }
 
     .line-two {
-
         width: 22px;
         height: 11px;
-
         top: 9px;
     }
 
     .line-three {
-
         width: 15px;
         height: 6px;
-
         top: 20px;
     }
 
-
-    /* =========================
-       DESCRIPTION
-    ========================== */
-
     .description {
-
         right: 18px;
-
         top: 23%;
-
         gap: 8px;
     }
 
     .description .arrow {
-
         font-size: 25px;
     }
 
     .description p {
-
         font-size: 17px;
     }
 
-
-    /* =========================
-       WAVE
-    ========================== */
-
     .wave-background {
-
         width: 500px;
         height: 500px;
-
         bottom: -1%;
     }
 
     .wave-1 {
-
         width: 230px;
         height: 230px;
     }
 
     .wave-2 {
-
         width: 300px;
         height: 300px;
     }
 
     .wave-3 {
-
         width: 370px;
         height: 370px;
     }
 
     .wave-4 {
-
         width: 440px;
         height: 440px;
     }
 
     .wave-5 {
-
         width: 500px;
         height: 500px;
     }
 
-
-    /* =========================
-       PHOTO
-    ========================== */
-
     .person {
-
         height: 65%;
     }
 
-
-    /* =========================
-       RUNNING TEXT MOBILE
-    ========================== */
-
     .running-wrapper {
-
         bottom: 9%;
     }
 
-    .running-track {
-
-        animation:
-            runningText 8s
-            linear
-            infinite;
-    }
-
     .running-track span {
-
         font-size: 90px;
-
-        font-weight: 400;
-
         letter-spacing: -5px;
     }
 
-
-    /* =========================
-       HERO BOTTOM
-    ========================== */
-
     .hero-bottom {
-
         left: 18px;
         right: 18px;
-
         bottom: 20px;
-
         font-size: 7px;
-
         letter-spacing: 2px;
     }
 
-
-    /* =========================
-       ABOUT & CONTACT
-    ========================== */
-
     .about,
     .contact {
-
-        padding:
-            100px 25px;
+        padding: 100px 25px;
     }
 
     .about h2,
     .contact h2 {
-
-        font-size: 80px;
-
-        letter-spacing: -5px;
+        font-size: clamp(48px, 12vw, 80px);
+        letter-spacing: -3px;
     }
 
     .about p {
-
-        font-size: 16px;
-    }
-
-    .email-link {
-
         font-size: 15px;
     }
 
-
-    /* =========================
-       FOOTER
-    ========================== */
-
-    footer {
-
-        padding:
-            22px 18px;
-
-        font-size: 7px;
+    .email-link {
+        font-size: 15px;
+        overflow-wrap: anywhere;
     }
 
+    footer {
+        padding: 22px 18px;
+        font-size: 7px;
+        letter-spacing: 2px;
+    }
 }
 
 
@@ -1906,57 +1033,41 @@ footer {
 ======================================== */
 
 @media (max-width: 400px) {
-
     .navbar nav {
-
-        gap: 9px;
+        gap: 8px;
     }
 
     .navbar nav a {
-
         font-size: 8px;
     }
 
     .location {
-
         width: 190px;
     }
 
-
-    /* =========================
-       WELCOME
-    ========================== */
-
     .welcome-content h1 {
-
-        font-size: 48px;
-
+        font-size: 45px;
         letter-spacing: -2px;
     }
 
-    .loading-line {
-
-        width: 75%;
-    }
-
-
-    /* =========================
-       RUNNING TEXT
-    ========================== */
-
-    .running-track {
-
-        animation:
-            runningText 8s
-            linear
-            infinite;
-    }
-
     .running-track span {
-
         font-size: 75px;
-
-        font-weight: 400;
     }
-
 }
+
+
+/* ========================================
+   REDUCED MOTION ACCESSIBILITY
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
