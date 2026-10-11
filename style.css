@@ -19,7 +19,6 @@ body {
     overflow-x: hidden;
 }
 
-
 /* ========================================
    CUSTOM CURSOR
 ======================================== */
@@ -59,7 +58,6 @@ body {
     height: 55px;
     background: rgba(0, 0, 0, 0.06);
 }
-
 
 /* ========================================
    MULTILINGUAL WELCOME SCREEN
@@ -161,7 +159,6 @@ body {
     right: 30px;
 }
 
-
 /* ========================================
    WELCOME ANIMATIONS
 ======================================== */
@@ -214,7 +211,6 @@ body {
     }
 }
 
-
 /* ========================================
    NAVBAR
 ======================================== */
@@ -250,13 +246,13 @@ body {
 }
 
 .navbar nav a {
+    position: relative;
     color: #111;
     text-decoration: none;
     font-size: 13px;
     font-weight: 400;
     line-height: 1.5;
     letter-spacing: 0.5px;
-    position: relative;
 }
 
 .navbar nav a::after {
@@ -273,7 +269,6 @@ body {
 .navbar nav a:hover::after {
     width: 100%;
 }
-
 
 /* ========================================
    HERO
@@ -302,7 +297,6 @@ body {
     z-index: 50;
 }
 
-
 /* ========================================
    LOCATION
 ======================================== */
@@ -329,7 +323,7 @@ body {
     min-height: 95px;
     padding: 18px 20px 18px 32px;
     background: #111;
-    color: white;
+    color: #fff;
     border-radius: 0 60px 60px 0;
     display: flex;
     align-items: center;
@@ -362,7 +356,6 @@ body {
     letter-spacing: 2px;
 }
 
-
 /* ========================================
    EARTH BUTTON
 ======================================== */
@@ -376,8 +369,8 @@ body {
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    background: white;
-    border: 2px solid white;
+    background: #fff;
+    border: 2px solid #fff;
     overflow: hidden;
     transition:
         transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
@@ -400,12 +393,12 @@ body {
         90deg,
         #111 0%,
         #111 18%,
-        white 18%,
-        white 50%,
+        #fff 18%,
+        #fff 50%,
         #111 50%,
         #111 70%,
-        white 70%,
-        white 100%
+        #fff 70%,
+        #fff 100%
     );
     transform: rotate(-15deg);
     transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
@@ -424,23 +417,22 @@ body {
 }
 
 .line-one {
+    top: 0;
     width: 13px;
     height: 35px;
-    top: 0;
 }
 
 .line-two {
+    top: 11px;
     width: 27px;
     height: 14px;
-    top: 11px;
 }
 
 .line-three {
+    top: 25px;
     width: 19px;
     height: 7px;
-    top: 25px;
 }
-
 
 /* ========================================
    DESCRIPTION
@@ -448,8 +440,8 @@ body {
 
 .description {
     position: absolute;
-    right: 7%;
     top: 34%;
+    right: 7%;
     z-index: 40;
     display: flex;
     gap: 18px;
@@ -471,7 +463,6 @@ body {
     font-weight: 700;
 }
 
-
 /* ========================================
    WAVE BACKGROUND
 ======================================== */
@@ -489,8 +480,8 @@ body {
 
 .wave {
     position: absolute;
-    left: 50%;
     top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 50%;
     border: 2px solid transparent;
@@ -536,7 +527,8 @@ body {
 }
 
 @keyframes waveMove {
-    0%, 100% {
+    0%,
+    100% {
         transform: translate(-50%, -50%) scale(0.96);
         opacity: 0.55;
     }
@@ -546,7 +538,6 @@ body {
         opacity: 1;
     }
 }
-
 
 /* ========================================
    PROFILE PHOTO
@@ -566,9 +557,9 @@ body {
 }
 
 .person img {
-    height: 100%;
-    width: auto;
     display: block;
+    width: auto;
+    height: 100%;
     object-fit: contain;
     filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.15));
 }
@@ -584,7 +575,6 @@ body {
         transform: translateX(-50%) translateY(0);
     }
 }
-
 
 /* ========================================
    RUNNING TEXT
@@ -625,7 +615,6 @@ body {
     }
 }
 
-
 /* ========================================
    HERO BOTTOM
 ======================================== */
@@ -642,7 +631,6 @@ body {
     z-index: 50;
 }
 
-
 /* ========================================
    ABOUT
 ======================================== */
@@ -650,7 +638,7 @@ body {
 .about {
     min-height: 100vh;
     background: #111;
-    color: white;
+    color: #fff;
     padding: 150px 8%;
     display: flex;
     align-items: center;
@@ -701,7 +689,6 @@ body {
     margin-top: 15px;
 }
 
-
 /* ========================================
    CONTACT
 ======================================== */
@@ -749,21 +736,19 @@ body {
     opacity: 0.5;
 }
 
-
 /* ========================================
    FOOTER
 ======================================== */
 
 footer {
     background: #111;
-    color: white;
+    color: #fff;
     padding: 25px 32px;
     display: flex;
     justify-content: space-between;
     font-size: 9px;
     letter-spacing: 3px;
 }
-
 
 /* ========================================
    TABLET
@@ -798,15 +783,14 @@ footer {
     }
 
     .description {
-        right: 5%;
         top: 30%;
+        right: 5%;
     }
 
     .description p {
         font-size: 21px;
     }
 }
-
 
 /* ========================================
    MOBILE
@@ -923,20 +907,20 @@ footer {
     }
 
     .line-two {
+        top: 9px;
         width: 22px;
         height: 11px;
-        top: 9px;
     }
 
     .line-three {
+        top: 20px;
         width: 15px;
         height: 6px;
-        top: 20px;
     }
 
     .description {
-        right: 18px;
         top: 23%;
+        right: 18px;
         gap: 8px;
     }
 
@@ -1027,7 +1011,6 @@ footer {
     }
 }
 
-
 /* ========================================
    VERY SMALL SCREEN
 ======================================== */
@@ -1055,7 +1038,6 @@ footer {
     }
 }
 
-
 /* ========================================
    REDUCED MOTION ACCESSIBILITY
 ======================================== */
@@ -1070,4 +1052,3 @@ footer {
         transition-duration: 0.01ms !important;
     }
 }
-
